@@ -75,7 +75,145 @@ document.addEventListener('DOMContentLoaded', () => {
 
   attemptPlayAudio();
 
-  // 2. Terminal 00 Time Elapsed Counter
+  // 1.5. Tiled Repeating GIF Background Rounds (Rotates every 10s to a random GIF)
+  const TILED_GIFS = [
+    { path: '/images/back1.gif', size: '140px 140px', name: 'EYES_OF_GROOM' },
+    { path: '/images/back2.gif', size: '140px 140px', name: 'WALL_OF_EYES' },
+    { path: '/images/00warning.gif', size: '130px 130px', name: 'WARNING_CASCADE' },
+    { path: '/images/deadend.gif', size: '140px 140px', name: 'DEAD_END_VOID' },
+    { path: '/images/thisshouldnotexist.gif', size: '140px 140px', name: 'FORBIDDEN_SKULL' },
+    { path: '/images/vvv.gif', size: '180px 180px', name: 'DEMONIC_FLESH_STATIC' },
+    { path: '/images/rre2.gif', size: '200px 130px', name: 'PAPOOSE_FLESH_MAW' },
+    { path: '/images/With_Wilbells_will_why_waste_whit_worrying.gif', size: '180px 140px', name: 'HYPNOTIC_VORTEX' },
+    { path: '/images/ListenWell.gif', size: '160px 160px', name: 'THE_LISTENER' },
+    { path: '/images/unn4.gif', size: '160px 40px', name: 'PULSATING_SUTURE' },
+    { path: '/images/bbn.gif', size: '180px 45px', name: 'SURVEILLANCE_LATTICE' },
+    { path: '/images/beyondthepointof.gif', size: '220px 80px', name: 'BEYOND_THE_POINT' },
+    { path: '/images/zz2.gif', size: '80px 80px', name: 'BLINKING_EYEBALLS' },
+    { path: '/images/zz4.gif', size: '90px 90px', name: 'CURSED_HEX_SEALS' },
+    { path: '/images/zz.gif', size: '70px 70px', name: 'THREAD_RUNE_WEAVE' }
+  ];
+
+  const tiledBgEl = document.getElementById('tiled-void-bg');
+  const bgRotationHud = document.getElementById('bg-rotation-hud');
+  const bgRotationNameEl = document.getElementById('bg-rotation-name');
+  const bgTimerEl = document.getElementById('bg-timer');
+  const bgRoundCountEl = document.getElementById('bg-round-count');
+  const btnBreakReality = document.getElementById('btn-break-reality');
+
+  let currentGifIndex = 0;
+  let bgRound = 1;
+  let bgSecondsRemaining = 10;
+  let isBrokenReality = false;
+  let brokenShuffleInterval = null;
+
+  function setTiledBackground(index) {
+    if (!tiledBgEl) return;
+    const gif = TILED_GIFS[index];
+    currentGifIndex = index;
+
+    // Trigger glitch pulse during transition
+    tiledBgEl.classList.add('glitching');
+    setTimeout(() => {
+      tiledBgEl.style.backgroundImage = `url("${gif.path}")`;
+      tiledBgEl.style.backgroundSize = gif.size;
+      setTimeout(() => {
+        tiledBgEl.classList.remove('glitching');
+      }, 250);
+    }, 50);
+
+    if (bgRotationNameEl) {
+      bgRotationNameEl.textContent = gif.name;
+    }
+    if (bgRoundCountEl) {
+      bgRoundCountEl.textContent = `${bgRound}`;
+    }
+  }
+
+  function cycleRandomBackground() {
+    let nextIndex;
+    do {
+      nextIndex = Math.floor(Math.random() * TILED_GIFS.length);
+    } while (nextIndex === currentGifIndex && TILED_GIFS.length > 1);
+
+    bgRound++;
+    setTiledBackground(nextIndex);
+    bgSecondsRemaining = 10;
+    if (bgTimerEl) bgTimerEl.textContent = '１０';
+  }
+
+  // 1-second countdown ticker for the 10-second background cycle
+  setInterval(() => {
+    if (isBrokenReality) return;
+    bgSecondsRemaining--;
+    if (bgSecondsRemaining <= 0) {
+      cycleRandomBackground();
+      sound.playGlitchStatic();
+    } else if (bgTimerEl) {
+      const fullwidth = ['０','１','２','３','４','５','６','７','８','９','１０'];
+      bgTimerEl.textContent = fullwidth[bgSecondsRemaining] || `${bgSecondsRemaining}`;
+    }
+  }, 1000);
+
+  // Allow clicking HUD to cycle immediately
+  if (bgRotationHud) {
+    bgRotationHud.addEventListener('click', () => {
+      sound.playClick(1500);
+      sound.playGlitchStatic();
+      cycleRandomBackground();
+    });
+  }
+
+  // Initialize initial background
+  setTiledBackground(0);
+
+  // 1.6. "BREAK REALITY" Toggle (Intense broken glitch mode)
+  if (btnBreakReality) {
+    btnBreakReality.addEventListener('click', () => {
+      isBrokenReality = !isBrokenReality;
+      sound.ensureContext();
+
+      if (isBrokenReality) {
+        document.body.classList.add('reality-broken');
+        btnBreakReality.classList.add('active');
+        btnBreakReality.textContent = '［ ＲＥＳＴＯＲＥ  ＲＥＡＬＩＴＹ ］';
+        sound.playAlienWarble(550);
+        sound.playMonsterCrack();
+
+        // Rapidly shuffle background every 750ms in broken mode
+        brokenShuffleInterval = setInterval(() => {
+          const randIdx = Math.floor(Math.random() * TILED_GIFS.length);
+          bgRound++;
+          setTiledBackground(randIdx);
+          sound.playGlitchStatic();
+        }, 750);
+      } else {
+        document.body.classList.remove('reality-broken');
+        btnBreakReality.classList.remove('active');
+        btnBreakReality.textContent = '［ ＢＲＥＡＫ  ＲＥＡＬＩＴＹ ］';
+        clearInterval(brokenShuffleInterval);
+        bgSecondsRemaining = 10;
+        if (bgTimerEl) bgTimerEl.textContent = '１０';
+        sound.playClick(900);
+      }
+    });
+  }
+
+  // 1.7. Random Periodic Glitch Twitches (Keeps the site feeling broken & glitchy)
+  setInterval(() => {
+    if (Math.random() < 0.55) {
+      const glitchTargets = document.querySelectorAll('.term-glitch-header, .depth-title, #info, .broken-status-ribbon');
+      if (glitchTargets.length) {
+        const target = glitchTargets[Math.floor(Math.random() * glitchTargets.length)];
+        target.style.filter = 'invert(1) hue-rotate(120deg) contrast(1.8)';
+        target.style.transform = `translate(${(Math.random() - 0.5) * 8}px, ${(Math.random() - 0.5) * 4}px)`;
+        setTimeout(() => {
+          target.style.filter = '';
+          target.style.transform = '';
+        }, 130);
+      }
+    }
+  }, 4000);
   const raidTimerEl = document.getElementById('term-raid-timer');
   const raidStartTime = new Date('2019-09-20T03:00:00Z').getTime();
 

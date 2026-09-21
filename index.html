@@ -15,6 +15,10 @@
     <link rel="icon" type="image/gif" href="/images/00warning.gif" />
   </head>
   <body>
+    <!-- TILED REPEATING VOID BACKGROUND (Cycled every 10s into random gif) -->
+    <div id="tiled-void-bg" class="tiled-void-bg"></div>
+    <div class="broken-scanlines"></div>
+
     <!-- Background Audio (Terminal 00 Ambient Waves) -->
     <audio id="bg-music" loop>
       <source src="/music/terminalwaves.mp3" type="audio/mp3" />
@@ -45,11 +49,20 @@
         <span class="strip-title">ＴＥＲＭＩＮＡＬ ００ ／／ Ｓ－４ ＧＲＯＯＭ ＬＡＫＥ ［３７°１４′００″ Ｎ １１５°４８′３０″ Ｗ］</span>
       </div>
       <div class="strip-right">
-        <span class="probe-stat">ＰＲＯＢＥ ＳＴＡＴＵＳ ： ＡＣＴＩＶＥ</span>
+        <!-- 10-Second Random Tiled GIF Rotation HUD -->
+        <div class="bg-rotation-hud" id="bg-rotation-hud" title="Click to cycle void background immediately">
+          ［ ＢＧ ： <span id="bg-rotation-name">ＥＹＥＳ＿ＯＦ＿ＧＲＯＯＭ</span> （ <span id="bg-timer">１０</span>Ｓ ） ］
+        </div>
+        <button id="btn-break-reality" class="term-break-btn" title="Toggle intense broken glitch reality mode">［ ＢＲＥＡＫ  ＲＥＡＬＩＴＹ ］</button>
         <span class="sep">｜</span>
         <button id="btn-sound-toggle" class="term-sound-btn">［ ＳＯＵＮＤ ： ＯＮ ］</button>
       </div>
     </header>
+
+    <!-- Broken Status Ribbon -->
+    <div class="broken-status-ribbon" id="broken-status-ribbon">
+      ［ ＳＹＳＴＥＭ  ＤＥＧＲＡＤＡＴＩＯＮ ： ８９．４％ ］ ⸺ ［ ＴＩＬＥＤ  ＶＯＩＤ  ＢＡＣＫＧＲＯＵＮＤ ： ＡＣＴＩＶＥ ］ ⸺ ［ ＲＯＵＮＤ ： <span id="bg-round-count">１</span> ］
+    </div>
 
     <!-- Cryptic Scrolling Marquee (#info ticker from Terminal 00) -->
     <div id="info">
