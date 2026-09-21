@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>37°14′00″ N 115°48′30″ W // AREA 51 CLASSIFIED TERMINAL</title>
+    <meta name="description" content="Classified Extraterrestrial Research & Defense Command Terminal - Groom Lake / S-4 Installation 37°14′00″ N 115°48′30″ W" />
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@600;800;900&family=Chakra+Petch:wght@400;600;700&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%23020905' stroke='%2300ff88' stroke-width='4'/><polygon points='50,18 80,75 20,75' fill='none' stroke='%2300ff88' stroke-width='4'/><circle cx='50' cy='52' r='8' fill='%2300ff88'/></svg>" />
+  </head>
+  <body class="defcon-5">
+    <!-- CRT Overlay & Scanlines -->
+    <div class="crt-overlay" id="crt-overlay"></div>
+    <div class="crt-scanlines"></div>
+
+    <!-- Alert Banner / Containment Siren Flasher -->
+    <div class="emergency-beacon" id="emergency-beacon"></div>
+
+    <div class="terminal-wrapper">
+      <!-- TOP STATUS / HUD NAVIGATION -->
+      <header class="hud-header">
+        <div class="hud-top-stripe">
+          <div class="clearance-badge">
+            <span class="warning-icon">▲</span>
+            <span>TOP SECRET // MAJESTIC-12 // SPECIAL ACCESS PROGRAM [S-4 GROOM LAKE]</span>
+          </div>
+          <div class="telemetry-bar">
+            <span class="geo-coord">LAT: 37°14′00″ N</span>
+            <span class="geo-coord">LON: 115°48′30″ W</span>
+            <span class="hud-time" id="hud-clock">00:00:00 UTC</span>
+          </div>
+        </div>
+
+        <div class="hud-main-bar">
+          <div class="hud-brand">
+            <div class="brand-logo">
+              <svg viewBox="0 0 100 100" class="alien-emblem">
+                <circle cx="50" cy="50" r="46" stroke="currentColor" stroke-width="2" fill="none" stroke-dasharray="4 2" />
+                <polygon points="50,15 85,75 15,75" stroke="currentColor" stroke-width="2.5" fill="none" />
+                <circle cx="50" cy="55" r="10" stroke="currentColor" stroke-width="1.5" fill="none" />
+                <line x1="50" y1="15" x2="50" y2="85" stroke="currentColor" stroke-width="1" stroke-dasharray="2 2" />
+                <line x1="15" y1="55" x2="85" y2="55" stroke="currentColor" stroke-width="1" stroke-dasharray="2 2" />
+              </svg>
+            </div>
+            <div class="brand-text">
+              <h1 class="brand-title">37°14′00″ N 115°48′30″ W</h1>
+              <p class="brand-sub">AIR FORCE FLIGHT TEST CENTER // DETACHMENT 3 // PAPOOSE LAKE S-4</p>
+            </div>
+          </div>
+
+          <!-- DEFCON Controller -->
+          <div class="defcon-selector">
+            <span class="defcon-label">DEFCON POSTURE:</span>
+            <div class="defcon-buttons">
+              <button class="defcon-btn active" data-level="5" id="btn-defcon-5">5<span class="btn-sub">PEACE</span></button>
+              <button class="defcon-btn" data-level="4" id="btn-defcon-4">4<span class="btn-sub">WATCH</span></button>
+              <button class="defcon-btn" data-level="3" id="btn-defcon-3">3<span class="btn-sub">ALERT</span></button>
+              <button class="defcon-btn" data-level="2" id="btn-defcon-2">2<span class="btn-sub">ARMED</span></button>
+              <button class="defcon-btn defcon-critical" data-level="1" id="btn-defcon-1">1<span class="btn-sub">BREACH</span></button>
+            </div>
+          </div>
+
+          <!-- Master Sound and Display Controls -->
+          <div class="hud-controls">
+            <button class="hud-btn" id="btn-sound-toggle" title="Toggle Terminal Audio">
+              <span class="hud-btn-icon" id="sound-icon">🔊</span>
+              <span id="sound-label">AUDIO: ACTIVE</span>
+            </button>
+            <button class="hud-btn" id="btn-crt-toggle" title="Toggle Retro CRT Scanlines">
+              <span class="hud-btn-icon">📺</span>
+              <span id="crt-label">CRT: ON</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- STATION NAVIGATION TABS -->
+        <nav class="station-nav">
+          <button class="tab-btn active" data-tab="radar" id="tab-nav-radar">
+            <span class="tab-code">SEC-01</span> GROOM RADAR & AIRSPACE
+          </button>
+          <button class="tab-btn" data-tab="reactor" id="tab-nav-reactor">
+            <span class="tab-code">SEC-02</span> ELEMENT 115 GRAV-CORE
+          </button>
+          <button class="tab-btn" data-tab="interceptor" id="tab-nav-interceptor">
+            <span class="tab-code">SEC-03</span> COSMIC RF INTERCEPTOR
+          </button>
+          <button class="tab-btn" data-tab="dossiers" id="tab-nav-dossiers">
+            <span class="tab-code">SEC-04</span> REDACTED DOSSIERS
+          </button>
+          <button class="tab-btn" data-tab="terminal" id="tab-nav-terminal">
+            <span class="tab-code">SEC-05</span> S-4 MAINFRAME CLI
+          </button>
+        </nav>
+      </header>
+
+      <!-- MAIN OPERATIONAL STATIONS -->
+      <main class="terminal-main">
+        <!-- 01: GROOM RADAR & AIRSPACE SECTION -->
+        <section class="station-panel active" id="station-radar">
+          <div class="panel-layout-2col">
+            <div class="tactical-card radar-card">
+              <div class="card-header">
+                <span class="card-tag">STATION 01</span>
+                <h2 class="card-title">AN/FPS-117 GROOM LAKE SURVEILLANCE RADAR</h2>
+                <span class="card-meta">RANGE: 50 KM // R-4808N CLASSIFIED AIRSPACE</span>
+              </div>
+              <div class="canvas-container">
+                <canvas id="radar-canvas"></canvas>
+              </div>
+              <div class="radar-footer-controls">
+                <span class="hint-text"><span class="highlight-text">TIP:</span> Click any radar blip or anomaly to lock target telemetry.</span>
+                <button class="action-btn" id="btn-ping-radar">MANUAL SWEEP PING</button>
+              </div>
+            </div>
+
+            <!-- Radar Target Intelligence HUD -->
+            <div class="tactical-card telemetry-card">
+              <div class="card-header">
+                <span class="card-tag">TACTICAL INTEL</span>
+                <h3 class="card-title" id="target-intel-title">TARGET TELEMETRY: REAL-TIME</h3>
+              </div>
+              <div class="intel-body" id="target-intel-body">
+                <div class="intel-row">
+                  <span class="label">DESIGNATION:</span>
+                  <span class="val highlight" id="intel-designation">UAP-ALPHA-9 (SPORT MODEL)</span>
+                </div>
+                <div class="intel-row">
+                  <span class="label">RADAR SIGNATURE:</span>
+                  <span class="val" id="intel-signature">GRAVIMETRIC DISTORTION // BENT PHOTONS</span>
+                </div>
+                <div class="intel-row">
+                  <span class="label">ESTIMATED VELOCITY:</span>
+                  <span class="val cyan" id="intel-velocity">MACH 28.4 (21,700 MPH)</span>
+                </div>
+                <div class="intel-row">
+                  <span class="label">ACCELERATION:</span>
+                  <span class="val" id="intel-accel">850 G (NO INERTIAL DAMPENING DETECTED)</span>
+                </div>
+                <div class="intel-row">
+                  <span class="label">AIRFRAME GEOMETRY:</span>
+                  <span class="val" id="intel-geometry">DISCOID (16M DIAMETER x 4.5M HEIGHT)</span>
+                </div>
+                <div class="intel-row">
+                  <span class="label">ORIGIN VECTOR:</span>
+                  <span class="val" id="intel-origin">ZETA RETICULI BINARY SYSTEM (39.17 LY)</span>
+                </div>
+                <div class="intel-row">
+                  <span class="label">PROPULSION MECHANISM:</span>
+                  <span class="val alert" id="intel-propulsion">ELEMENT 115 PROTON BOMBARDMENT REACTOR</span>
+                </div>
+                <div class="intel-notes">
+                  <p class="notes-header">CLASSIFIED SURVEILLANCE LOG // ENTRY #8839:</p>
+                  <p class="notes-text">
+                    Craft demonstrated instantaneous right-angle vector shifts without aerodynamic friction heating. 
+                    Radar return shows alternating polarity phase shifts consistent with high-gradient gravitational distortion. 
+                    Do not engage with conventional F-22 interceptors.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 02: ELEMENT 115 GRAV-CORE SECTION -->
+        <section class="station-panel" id="station-reactor">
+          <div class="panel-layout-2col">
+            <div class="tactical-card reactor-card">
+              <div class="card-header">
+                <span class="card-tag">STATION 02</span>
+                <h2 class="card-title">ELEMENT 115 (MOSCOVIUM) GRAVITATIONAL REACTOR</h2>
+                <span class="card-meta">S-4 PAPOOSE LAKE // BAY 2 TEST RIG</span>
+              </div>
+              <div class="canvas-container">
+                <canvas id="reactor-canvas"></canvas>
+              </div>
+            </div>
+
+            <div class="tactical-card controls-card">
+              <div class="card-header">
+                <span class="card-tag">CONTAINMENT SYSTEM</span>
+                <h3 class="card-title">SUBATOMIC ACCELERATOR CONTROLS</h3>
+              </div>
+              <div class="reactor-controls-wrapper">
+                <div class="control-group">
+                  <div class="control-label-row">
+                    <label for="slider-injection">PROTON INJECTION POWER</label>
+                    <span class="control-value" id="val-injection">72% [1,065.6 MW]</span>
+                  </div>
+                  <input type="range" id="slider-injection" min="10" max="100" value="72" />
+                  <span class="control-hint">Accelerates protons to transmute Element 115 into Element 116.</span>
+                </div>
+
+                <div class="control-group">
+                  <label>GRAVITY AMPLIFIER CONFIGURATION</label>
+                  <div class="mode-toggle-group">
+                    <button class="mode-btn active" data-mode="DELTA" id="btn-mode-delta">
+                      <strong>DELTA MODE</strong>
+                      <span>Long-distance Space-Time Warp</span>
+                    </button>
+                    <button class="mode-btn" data-mode="OMICRON" id="btn-mode-omicron">
+                      <strong>OMICRON MODE</strong>
+                      <span>Low-altitude Planetary Hover</span>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="telemetry-box">
+                  <div class="telemetry-grid">
+                    <div class="tele-item">
+                      <span class="tele-label">GRAVITY-A WAVE FREQ</span>
+                      <span class="tele-num cyan">7.46 Hz</span>
+                    </div>
+                    <div class="tele-item">
+                      <span class="tele-label">MAGNETIC FLUX</span>
+                      <span class="tele-num">1.84 Tesla</span>
+                    </div>
+                    <div class="tele-item">
+                      <span class="tele-label">CORE TEMPERATURE</span>
+                      <span class="tele-num">294.1 K (STABLE)</span>
+                    </div>
+                    <div class="tele-item">
+                      <span class="tele-label">MASS DEFICIT</span>
+                      <span class="tele-num alert">-0.00042g</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="reactor-action-row">
+                  <button class="danger-btn" id="btn-trigger-overload">
+                    <span>⚠️ INDUCE SUBATOMIC OVERLOAD</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 03: COSMIC RF INTERCEPTOR SECTION -->
+        <section class="station-panel" id="station-interceptor">
+          <div class="panel-layout-2col">
+            <div class="tactical-card rf-card">
+              <div class="card-header">
+                <span class="card-tag">STATION 03</span>
+                <h2 class="card-title">AN/FLR-9 WULLENWEBER RF INTERCEPTOR</h2>
+                <span class="card-meta">REAL-TIME SPECTROGRAM // WATERFALL FFT</span>
+              </div>
+              <div class="canvas-container">
+                <canvas id="spectrogram-canvas"></canvas>
+              </div>
+              <div class="tuner-row">
+                <label for="freq-tuner">FREQUENCY TUNER (MHz):</label>
+                <div class="preset-buttons">
+                  <button class="preset-btn active" data-freq="1420.405">1420.405 MHz (H-Line)</button>
+                  <button class="preset-btn" data-freq="432.108">432.108 MHz (Zeta)</button>
+                  <button class="preset-btn" data-freq="7.460">7.460 MHz (ELF)</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="tactical-card decrypt-card">
+              <div class="card-header">
+                <span class="card-tag">SIGNAL DECODER</span>
+                <h3 class="card-title">EXTRATERRESTRIAL TRANSMISSION PACKET</h3>
+              </div>
+              <div class="decoder-body">
+                <div class="alien-glyphs-container">
+                  <span class="glyphs-label">RAW ALIEN TRANSMISSION BURST:</span>
+                  <div class="glyph-stream" id="glyph-stream">⏁⍜⌰⏃⍀ ⎎⍀⟒⍾⎍⟒⋏☊⊬ ⟟⋏⏁⟒⍀☊⟒⌿⏁ 7-14-00 115-48-30</div>
+                </div>
+
+                <div class="decrypt-action-container">
+                  <button class="action-btn-large" id="btn-decrypt-signal">
+                    <span class="btn-spinner" id="decrypt-spinner" style="display: none;"></span>
+                    <span id="decrypt-btn-text">INITIALIZE DECRYPTION CIPHER</span>
+                  </button>
+                </div>
+
+                <div class="decoded-result-box" id="decoded-result-box">
+                  <div class="result-header">DECRYPTED MILITARY INTELLIGENCE:</div>
+                  <p class="result-text" id="decoded-result-text">
+                    AWAITING CRYPTOGRAPHIC DEMODULATION... CLICK 'INITIALIZE DECRYPTION CIPHER' TO PROCESS CARRIER WAVE.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 04: REDACTED DOSSIERS SECTION -->
+        <section class="station-panel" id="station-dossiers">
+          <div class="dossiers-container">
+            <div class="dossiers-header-bar">
+              <div>
+                <span class="card-tag">MAJESTIC-12 ARCHIVES</span>
+                <h2 class="card-title">DECLASSIFIED INTELLIGENCE DOSSIERS & EYE-ONLY BRIEFS</h2>
+                <p class="card-sub">Hover or click any blacked-out redacted segment to bypass security clearance filters.</p>
+              </div>
+              <div class="dossier-actions">
+                <button class="action-btn" id="btn-declassify-all">DECLASSIFY ALL (OVERRIDE)</button>
+                <button class="action-btn" id="btn-classify-all">RESTORE CLASSIFICATION</button>
+              </div>
+            </div>
+
+            <div class="dossiers-grid">
+              <!-- Dossier 1 -->
+              <article class="dossier-document">
+                <div class="dossier-stamp">TOP SECRET // MAJIC</div>
+                <div class="doc-header">
+                  <span class="doc-id">DOC-REF: MJ-12/1947-08</span>
+                  <span class="doc-date">DATE: 24 SEPTEMBER 1947</span>
+                </div>
+                <h3 class="doc-title">MEMORANDUM FOR THE PRESIDENT // OPERATION MAJESTIC-12</h3>
+                <div class="doc-content">
+                  <p>
+                    On 07 July, 1947, a secret reconnaissance operation recovered remnants of an 
+                    <span class="redacted" data-secret="extraterrestrial aerospace craft">████████████████████████████</span>
+                    at a location approximately 75 miles northwest of 
+                    <span class="redacted" data-secret="Roswell Army Air Field, New Mexico">██████████████████████████████████</span>.
+                  </p>
+                  <p>
+                    Four <span class="redacted" data-secret="Non-Human Biological Entities (NHBE)">████████████████████████████████</span> 
+                    were recovered from the wreckage; three deceased, and one 
+                    <span class="redacted" data-secret="surviving entity designated EBE-1">████████████████████████████████</span>. 
+                    Transfer to <span class="redacted" data-secret="Groom Lake Underground Installation S-4">██████████████████████████████████████</span> 
+                    was executed under executive order.
+                  </p>
+                  <p>
+                    Propulsion mechanism relies on 
+                    <span class="redacted" data-secret="heavy element 115 generating directional Gravity-A waves">████████████████████████████████████████████████████████</span>.
+                  </p>
+                </div>
+                <div class="doc-footer">
+                  <span>SIGNATORY: DR. VANNEVAR BUSH</span>
+                  <span>SECURITY CODE: EYES ONLY POTUS</span>
+                </div>
+              </article>
+
+              <!-- Dossier 2 -->
+              <article class="dossier-document">
+                <div class="dossier-stamp">RESTRICTED DATA</div>
+                <div class="doc-header">
+                  <span class="doc-id">DOC-REF: S-4/TECH-SPEC-115</span>
+                  <span class="doc-date">FACILITY: PAPOOSE LAKE BAY 4</span>
+                </div>
+                <h3 class="doc-title">PROJECT GALILEO // REVERSE ENGINEERING REPORT</h3>
+                <div class="doc-content">
+                  <p>
+                    The craft cataloged as the <span class="redacted" data-secret="Sport Model (Flying Disc)">██████████████████████████</span> 
+                    features zero rivets, welds, or seams. Constructed from a continuous 
+                    <span class="redacted" data-secret="cellular titanium-bismuth metamaterial">████████████████████████████████████████</span> 
+                    capable of bending coherent light across the visual spectrum.
+                  </p>
+                  <p>
+                    Inside the lower deck, 
+                    <span class="redacted" data-secret="three gravity amplifiers are suspended on rotational gimbals">████████████████████████████████████████████████████████</span>. 
+                    When phased 180° out of alignment, the craft creates an 
+                    <span class="redacted" data-secret="artificial event horizon warping localized space-time">████████████████████████████████████████████████████</span>, 
+                    nullifying all inertial forces on interior occupants.
+                  </p>
+                </div>
+                <div class="doc-footer">
+                  <span>ANALYST: SEC-CLEARANCE-Q / S-4</span>
+                  <span>STATUS: ACTIVE STUDY</span>
+                </div>
+              </article>
+
+              <!-- Dossier 3 -->
+              <article class="dossier-document">
+                <div class="dossier-stamp">COSMIC TOP SECRET</div>
+                <div class="doc-header">
+                  <span class="doc-id">DOC-REF: BIO-AUTOPSY-EBE-1</span>
+                  <span class="doc-date">FACILITY: LEVEL 4 CRYOGENICS</span>
+                </div>
+                <h3 class="doc-title">PATHOLOGICAL EXAMINATION REPORT // EXTRATERRESTRIAL SPECIMEN</h3>
+                <div class="doc-content">
+                  <p>
+                    Subject height 1.12 meters. Weight 19.5 kg. Cranium significantly enlarged. 
+                    No external ears or prominent nasal cartilage. 
+                    Auditory receptors located 
+                    <span class="redacted" data-secret="internally with sensitivity up to 140 kHz">████████████████████████████████████████</span>.
+                  </p>
+                  <p>
+                    Blood contains 
+                    <span class="redacted" data-secret="no hemoglobin; oxygen transport mediated via copper-chlorophyll complex">████████████████████████████████████████████████████████████████</span>. 
+                    Cellular DNA exhibits 
+                    <span class="redacted" data-secret="triple-helix architecture synthesized with silicon base pairs">████████████████████████████████████████████████████████</span>.
+                  </p>
+                </div>
+                <div class="doc-footer">
+                  <span>FORENSIC SPECIALIST: DR. D.W. BRONK</span>
+                  <span>CHAIN OF CUSTODY: S-4 VAULT 3</span>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- 05: S-4 MAINFRAME CLI SECTION -->
+        <section class="station-panel" id="station-terminal">
+          <div class="terminal-shell-card" id="terminal-shell-container">
+            <!-- Terminal rendered dynamically by src/terminal.js -->
+          </div>
+        </section>
+      </main>
+
+      <!-- BOTTOM CLASSIFIED FOOTER -->
+      <footer class="hud-footer">
+        <div class="footer-left">
+          <span>COORDINATES: <a href="https://maps.google.com/?q=37.2350,-115.8111" target="_blank" rel="noopener noreferrer" class="coord-link">37°14′00″ N 115°48′30″ W</a></span>
+          <span class="divider">|</span>
+          <span>AIR FORCE MATERIEL COMMAND // NEVADA TEST RANGE R-4808N</span>
+        </div>
+        <div class="footer-center">
+          <span class="security-warning">RESTRICTED AREA: TRESPASSING PUNISHABLE BY FEDERAL IMPRISONMENT & DEADLY FORCE</span>
+        </div>
+        <div class="footer-right">
+          <span class="sys-version">GROOM-OS V4.19</span>
+          <span class="divider">|</span>
+          <span class="uplink-status">UPLINK: ACTIVE</span>
+        </div>
+      </footer>
+    </div>
+
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
