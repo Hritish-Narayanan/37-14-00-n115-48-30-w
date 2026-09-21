@@ -1,4 +1,4 @@
-// Terminal 00 // S-4 Groom Lake Orchestrator
+// S-4 Groom Lake Delirium Orchestrator [37°14′00″ N 115°48′30″ W]
 import { sound } from './audio.js';
 import { NarutoRunnerGame } from './minigame.js';
 import { RaiderBadgeGenerator } from './idgenerator.js';
@@ -6,7 +6,7 @@ import { MemeSoundboard } from './soundboard.js';
 import { AlienTranslator } from './translator.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Terminal 00 Autoplay Overlay & Background Waves Audio
+  // 1. S-4 Ambient Waves Audio & Paranoid Desert Cover
   const bgAudio = document.getElementById('bg-music');
   let audioPlaying = false;
 
@@ -20,15 +20,22 @@ document.addEventListener('DOMContentLoaded', () => {
           updateSoundButtonState(true);
         })
         .catch(() => {
-          // Create iconic Terminal 00 "ListenWell" Autoplay Cover
+          // Create S-4 Desert Seer Autoplay Cover
           const cover = document.createElement('div');
           cover.id = 'autoplay-cover';
           cover.innerHTML = `
-            <img src="/images/ListenWell.gif" draggable="false" alt="Listen Well" />
-            <p>
-              Ｓｏｍｅｔｈｉｎｇ  ｈａｓ  ｏｂｆｕｓｃａｔｅｄ  ｔｈｅｉｒ  ｖｏｉｃｅｓ  ｏｎｃｅ  ｍｏｒｅ．．．<br><br>
-              Ｎｏ  ｍａｔｔｅｒ，  Ｉ  ｓｈａｌｌ  ｍａｋｅ  ｙｏｕ  <span style="color: #D2738A;">ＬＩＳＴＥＮ</span>．<br><br>
-              ［ ＣＬＩＣＫ  ＴＯ  ＰＥＮＥＴＲＡＴＥ  ＴＨＥ  ＶＯＩＤ ］
+            <img src="/images/ListenWell.gif" draggable="false" alt="The Desert Seer" />
+            <p style="line-height: 2; font-size: 15px; color: #c1b492; max-width: 600px;">
+              ＨＥＹ． ＨＥＹ  ＹＯＵ． ＤＯＮ’Ｔ  ＣＬＯＳＥ  ＴＨＩＳ  ＴＡＢ．<br><br>
+              Ｐｕｔ  ｄｏｗｎ  ｔｈｅ  ｃｏｐｐｅｒ  ｗｉｒｅ  ａｎｄ  ｌｉｓｔｅｎ  ｔｏ  ｍｅ． 
+              Ｉ  ｈａｖｅ  ｂｅｅｎ  ｄｒｉｎｋｉｎｇ  ｗａｒｍ  ｔｅｑｕｉｌａ  ｂｅｈｉｎｄ  ｔｈｅ  Ｌｉｔｔｌｅ  Ａ’Ｌｅ’Ｉｎｎ  ｓｉｎｃｅ  １９９４． 
+              Ｔｈｅ  ｒａｄａｒ  ｄｏｅｓｎ’ｔ  ｂｏｕｎｃｅ  ｏｆｆ  ｓａｕｃｅｒｓ，  ｉｔ  ｂｏｕｎｃｅｓ  ｏｆｆ  
+              <span style="color: #ff0055; text-shadow: 0 0 8px #ff0055;">ＢＯＢ  ＬＡＺＡＲ’Ｓ  ＵＮＲＥＳＯＬＶＥＤ  ＧＵＩＬＴ</span>．<br><br>
+              Ｔｈｅ  ｖｏｉｄ  ｉｓ  ｈｕｍｍｉｎｇ  ａｔ  ７．４６  Ｈｚ． Ｉｆ  ｙｏｕｒ  ｍｏｌａｒｓ  ｓｔａｒｔ  ｖｉｂｒａｔｉｎｇ， 
+              ｔｈａｔ  ｍｅａｎｓ  ｙｏｕ’ｒｅ  ｄｏｉｎｇ  ｉｔ  ｒｉｇｈｔ．<br><br>
+              <span style="border: 1px solid #00ff41; padding: 8px 18px; color: #00ff41; background: #000; display: inline-block; margin-top: 12px; cursor: pointer; letter-spacing: 1px; box-shadow: 0 0 10px rgba(0,255,65,0.4);">
+                ［ ＣＬＩＣＫ  ＴＯ  ＵＮＣＯＲＫ  ＴＨＥ  ＦＲＥＱＵＥＮＣＹ  ＆  ＥＮＴＥＲ  ＴＨＥ  ＳＡＮＤ ］
+              </span>
             </p>
           `;
           document.body.appendChild(cover);
@@ -224,7 +231,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
     const mins = Math.floor((diff / (1000 * 60)) % 60);
     const secs = Math.floor((diff / 1000) % 60);
-    raidTimerEl.textContent = `［ ＴＩＭＥ  ＳＩＮＣＥ  ＴＨＥ  ＳＥＰＴＥＭＢＥＲ  ２０，  ２０１９  ＢＲＥＡＣＨ ： ${days}Ｄ  ${hours}Ｈ  ${mins}Ｍ  ${secs}Ｓ ］`;
+    raidTimerEl.textContent = `［ ＤＡＹＳ  ＳＰＥＮＴ  ＲＡＭＢＬＩＮＧ  ＩＮ  ＴＨＥ  ＳＡＮＤ  ＳＩＮＣＥ  ＴＨＥ  ２０１９  ＲＡＩＤ ： ${days}Ｄ  ${hours}Ｈ  ${mins}Ｍ  ${secs}Ｓ ］`;
   }
   setInterval(updateRaidTimer, 1000);
   updateRaidTimer();
