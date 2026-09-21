@@ -100,6 +100,12 @@ export class TerminalConsole {
   <span class="term-highlight">decrypt</span>      - Initiate automatic declassification sequence
   <span class="term-highlight">breach</span>       - Trigger EMERGENCY CONTAINMENT LOCKDOWN PROTOCOL
   <span class="term-highlight">coordinates</span>  - Precise S-4 GPS datum & geographic telemetry
+  <span class="term-highlight">storm</span>        - Execute Operation: Storm Area 51 (They Can't Stop All Of Us)
+  <span class="term-highlight">naruto</span>       - Deploy Naruto Runner Protocol (Arms 180° back)
+  <span class="term-highlight">kyle</span>         - Activate Kyle Drywall Breacher (Monster Energy mode)
+  <span class="term-highlight">clap</span>         - Extraterrestrial cheek clapping readiness assessment
+  <span class="term-highlight">alien</span>        - Extraterrestrial companion holographic uplink
+  <span class="term-highlight">boblazar</span>     - Bob Lazar S-4 Sport Model debriefing
   <span class="term-highlight">clear</span>        - Purge terminal buffer
         `);
         break;
@@ -187,6 +193,76 @@ TOPONYM: HOME OF THE BRAVE / WATERTOWN STRIP / DREAMLAND / THE RANCH
         redactedEls.forEach((el) => el.classList.add('revealed'));
         sound.playAccessGranted();
         this.println('<span class="term-bright">[SUCCESS] REDACTIONS DECLASSIFIED FOR S-4 PERSONNEL.</span>');
+        break;
+
+      case 'storm':
+        sound.playNarutoSwoosh();
+        sound.playXFiles();
+        this.println(`
+<span class="term-alert">🚨 OPERATION: STORM AREA 51 INITIATED 🚨</span>
+TARGET: 37°14′00″ N 115°48′30″ W (GROOM LAKE // S-4)
+MOTTO: "THEY CAN'T STOP ALL OF US"
+RAID FORCES DEPLOYED:
+  🏃 500,000 NARUTO RUNNERS (Mach 2 sprint velocity)
+  ⚡ 250,000 KYLES (Armed with Monster Energy Mango Loco)
+  🪨 100,000 ROCK THROWERS (Artillery stone barrage)
+  👽 1,000,000 ALIEN CHEEK CLAP ENTHUSIASTS
+STATUS: GUARDS CONFUSED // RADAR UNABLE TO LOCK ON ARMS-BACK RUNNERS!
+        `);
+        break;
+
+      case 'naruto':
+        sound.playNarutoSwoosh();
+        this.println(`
+<span class="term-highlight">🏃 [NARUTO RUNNER BATTALION SPRINT PROTOCOL]</span>
+SPEED: 180 MPH
+AERODYNAMICS: Arms angled 180° backwards, minimizing air drag.
+RADAR CROSS-SECTION: Undetectable to conventional Doppler systems!
+        `);
+        break;
+
+      case 'kyle':
+        sound.playMonsterCrack();
+        sound.playFbiOpenUp();
+        this.println(`
+<span class="term-highlight">⚡ [KYLE DRYWALL BREACHER PROTOCOL]</span>
+CURRENT INTAKE: 4x Monster Energy Cans (1600mg Caffeine)
+WALL PENETRATION POWER: 100% Sheetrock Destruction
+OBJECTIVE: Punch hole through S-4 perimeter fence for alien extraction!
+        `);
+        break;
+
+      case 'clap':
+        sound.playAlienVocal();
+        this.println(`
+<span class="term-cyan">🛸 [CLASSIFIED ALIEN CHEEK TELEMETRY]</span>
+STATUS: CLAPPED
+TARGET: EBE-1 / SPECIMEN RETICULI
+VERDICT: THE ALIENS HAVE AGREED TO PLAY MARIO KART AND SHARE WI-FI PASSWORDS.
+        `);
+        break;
+
+      case 'alien':
+      case 'ayy':
+        sound.playAlienVocal();
+        this.println(`
+<span class="term-bright">👽 [EXTRATERRESTRIAL COMPANION: PAUL]</span>
+"⏃⊬⊬   ⌰⋔⏃⍜! Greetings Earthling.
+Thank you for breaking me out of S-4 Bay 2.
+Do you guys still have Baja Blast at Taco Bell?"
+        `);
+        break;
+
+      case 'boblazar':
+      case 'lazar':
+        sound.playAlienWarble(600);
+        this.println(`
+<span class="term-cyan">[BOB LAZAR // S-4 RETROSPECTIVE DEBRIEF]</span>
+"The craft does not use conventional kerosene or jet turbines.
+Underneath the deck are three gravity amplifiers on rotational gimbals.
+When you power Element 115 with protons, it generates an intense gravitational wave.
+Also, the base cafeteria had surprisingly good hot dogs."
+        `);
         break;
 
       case 'clear':

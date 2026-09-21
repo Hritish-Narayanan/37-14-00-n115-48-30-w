@@ -70,6 +70,54 @@ export class RadarStation {
         x: 0,
         y: 0,
         history: []
+      },
+      {
+        id: 'RAID-NARUTO-01',
+        designation: 'NARUTO RUNNER INVASION FLOCK',
+        r: 130,
+        theta: 1.2,
+        speed: 'MACH 2.8 (ARMS EXTENDED)',
+        altitude: 'SURFACE LEVEL // SPRINTING',
+        signature: 'ORANGE HOODIE INFRARED HEAT',
+        origin: 'RACHEL, NEVADA HWY 375',
+        threat: 'CANNOT BE STOPPED',
+        dx: 0.45,
+        dy: -0.3,
+        x: 0,
+        y: 0,
+        history: []
+      },
+      {
+        id: 'KYLE-FORCE-ONE',
+        designation: 'DRYWALL BREACH BRIGADE',
+        r: 95,
+        theta: 3.4,
+        speed: '35 MPH // MONSTER FUEL',
+        altitude: 'FENCE PERIMETER',
+        signature: 'HIGH-CAFFEINE SEISMIC VIBRATION',
+        origin: 'LOCAL GAS STATION',
+        threat: 'PUNCHING SECTOR 4 FENCE',
+        dx: -0.25,
+        dy: 0.2,
+        x: 0,
+        y: 0,
+        history: []
+      },
+      {
+        id: 'AYY-LMAO-VIP',
+        designation: 'RESCUED ALIEN PAUL (CHILLIN\')',
+        r: 50,
+        theta: 5.1,
+        speed: 'HOVERING WITH SNACKS',
+        altitude: '15 FT AGL',
+        signature: 'PEACE SIGNS & WI-FI UPLINK',
+        origin: 'ZETA RETICULI BINARY SYSTEM',
+        threat: 'EXTREMELY FRIENDLY',
+        dx: 0.15,
+        dy: 0.1,
+        x: 0,
+        y: 0,
+        history: []
       }
     ];
 
@@ -77,6 +125,30 @@ export class RadarStation {
     window.addEventListener('resize', () => this.resize());
     this.setupListeners();
     this.animate();
+  }
+
+  deployRaider() {
+    const r = Math.random() * 80 + 70;
+    const theta = Math.random() * Math.PI * 2;
+    const num = Math.floor(Math.random() * 900 + 100);
+    const newRaider = {
+      id: `RAIDER-#${num}`,
+      designation: 'REINFORCEMENT RUNNER',
+      r,
+      theta,
+      speed: 'SPRINTING AT MACH 1.5',
+      altitude: 'GROUND SPRINT',
+      signature: 'DETERMINED ENERGY',
+      origin: 'AREA 51 PERIMETER',
+      threat: 'SEARCHING FOR ALIENS',
+      dx: (Math.random() - 0.5) * 0.6,
+      dy: (Math.random() - 0.5) * 0.6,
+      x: 0,
+      y: 0,
+      history: []
+    };
+    this.anomalies.push(newRaider);
+    sound.playNarutoSwoosh();
   }
 
   resize() {

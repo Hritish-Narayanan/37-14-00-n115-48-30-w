@@ -1147,3 +1147,439 @@ body.defcon-1 .security-warning {
     grid-template-columns: 1fr;
   }
 }
+
+/* ==========================================================================
+   AREA 51 MEME SPECIALIZATIONS & INTERACTIVE MODULE STYLING
+   ========================================================================== */
+
+/* Meme Hero Banner */
+.meme-hero-banner {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  background: linear-gradient(135deg, rgba(6, 22, 15, 0.95), rgba(4, 15, 10, 0.85));
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin: 12px 18px 0 18px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--border-glow);
+}
+
+.meme-hero-banner::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(0, 255, 136, 0.06) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.hero-thumb-wrapper {
+  position: relative;
+  width: 150px;
+  height: 95px;
+  flex-shrink: 0;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 2px solid var(--color-primary);
+  box-shadow: 0 0 15px rgba(0, 255, 136, 0.3);
+}
+
+.hero-thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.hero-thumb-wrapper:hover .hero-thumb-img {
+  transform: scale(1.08);
+}
+
+.hero-info {
+  flex: 1;
+}
+
+.hero-tag-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
+}
+
+.hero-meme-badge {
+  background: rgba(255, 102, 0, 0.2);
+  color: #ff8833;
+  border: 1px solid rgba(255, 102, 0, 0.6);
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  border-radius: 3px;
+}
+
+.hero-timer-badge {
+  background: rgba(0, 255, 136, 0.12);
+  color: var(--color-primary);
+  border: 1px solid var(--border-color);
+  padding: 2px 10px;
+  font-size: 11px;
+  border-radius: 3px;
+  font-family: var(--font-mono);
+}
+
+.hero-headline {
+  font-family: var(--font-display);
+  font-size: 18px;
+  color: #fff;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.hero-tagline {
+  color: var(--text-muted);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.hero-btn {
+  background: var(--color-primary);
+  color: #000;
+  border: none;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 12px;
+  padding: 10px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  letter-spacing: 0.8px;
+  transition: var(--transition-fast);
+  box-shadow: 0 0 12px rgba(0, 255, 136, 0.4);
+}
+
+.hero-btn:hover {
+  background: #39ff14;
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(57, 255, 20, 0.6);
+}
+
+/* Naruto Mini-Game Section */
+.game-card {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.game-canvas-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: #000;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8);
+}
+
+.game-canvas-container canvas {
+  width: 100%;
+  max-width: 900px;
+  height: 360px;
+  display: block;
+  cursor: pointer;
+}
+
+.game-controls-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 10px 16px;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 255, 136, 0.15);
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.controls-legend {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.game-action-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+/* Raider ID Generator Section */
+.id-gen-layout {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 20px;
+}
+
+.id-preview-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.id-canvas-card {
+  background: #000;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 0 25px rgba(0, 255, 136, 0.2);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.id-canvas-card canvas {
+  width: 100%;
+  max-width: 640px;
+  height: auto;
+  aspect-ratio: 640 / 380;
+  display: block;
+}
+
+.id-form-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-family: var(--font-display);
+  font-size: 11px;
+  color: var(--color-primary);
+  letter-spacing: 0.8px;
+}
+
+.form-input, .form-select {
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  padding: 9px 12px;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  border-radius: 4px;
+  outline: none;
+  transition: var(--transition-fast);
+}
+
+.form-input:focus, .form-select:focus {
+  border-color: var(--color-cyan);
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.3);
+}
+
+/* Alien Meme Soundboard Section */
+.soundboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 14px;
+}
+
+.soundboard-btn {
+  background: rgba(4, 20, 13, 0.7);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 16px;
+  cursor: pointer;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.15s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.soundboard-btn:hover {
+  background: rgba(8, 32, 20, 0.9);
+  border-color: var(--color-primary);
+  box-shadow: 0 0 15px rgba(0, 255, 136, 0.25);
+  transform: translateY(-2px);
+}
+
+.soundboard-btn.playing {
+  border-color: #39ff14;
+  box-shadow: 0 0 25px rgba(57, 255, 20, 0.6);
+  background: rgba(20, 50, 28, 0.95);
+  transform: scale(0.98);
+}
+
+.sb-btn-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.sb-icon {
+  font-size: 24px;
+}
+
+.sb-wave-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(0, 255, 136, 0.3);
+  transition: 0.2s;
+}
+
+.soundboard-btn.playing .sb-wave-indicator {
+  background: #39ff14;
+  box-shadow: 0 0 8px #39ff14;
+  transform: scale(1.5);
+}
+
+.sb-btn-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 13px;
+  color: #fff;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.sb-btn-desc {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  line-height: 1.3;
+}
+
+.soundboard-siren-stop-row {
+  margin-top: 18px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Alien Meme Glyph Translator */
+.translator-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.translator-controls-top {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.preset-phrase-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.preset-chip {
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(0, 255, 136, 0.25);
+  color: var(--color-primary);
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.preset-chip:hover {
+  background: rgba(0, 255, 136, 0.15);
+  border-color: var(--color-primary);
+}
+
+.alien-text-area {
+  background: rgba(0, 0, 0, 0.65);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  color: var(--text-main);
+  padding: 12px;
+  font-family: var(--font-mono);
+  font-size: 15px;
+  resize: vertical;
+  outline: none;
+}
+
+.alien-text-area:focus {
+  border-color: var(--color-cyan);
+  box-shadow: 0 0 12px rgba(0, 229, 255, 0.3);
+}
+
+.translator-action-bar {
+  display: flex;
+  gap: 12px;
+}
+
+.glyph-output-card {
+  background: #020704;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 16px;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8);
+}
+
+.glyph-output-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  font-size: 11px;
+}
+
+.transmission-status {
+  color: var(--color-cyan);
+  font-weight: 700;
+}
+
+.transmission-status.transmitting {
+  color: #ffaa00;
+  animation: blink 0.5s infinite;
+}
+
+.alien-rendered-stream {
+  font-size: 26px;
+  line-height: 1.6;
+  color: #00ff88;
+  letter-spacing: 3px;
+  word-break: break-all;
+  min-height: 70px;
+  text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+}
+
+.alien-rendered-stream.glitch-effect {
+  color: #00e5ff;
+  text-shadow: 0 0 15px #00e5ff, 2px 2px #ff2244;
+}
+
+@media (max-width: 900px) {
+  .meme-hero-banner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .id-gen-layout {
+    grid-template-columns: 1fr;
+  }
+  .hero-actions {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
+

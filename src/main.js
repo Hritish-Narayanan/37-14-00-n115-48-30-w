@@ -1,32 +1,54 @@
-// Main Area 51 Classified Terminal Orchestrator
+// Main Area 51 Alien Meme Terminal Orchestrator
 import { sound } from './audio.js';
 import { RadarStation } from './radar.js';
 import { ReactorEngine } from './reactor.js';
-import { SignalInterceptor } from './spectrogram.js';
 import { TerminalConsole } from './terminal.js';
+import { NarutoRunnerGame } from './minigame.js';
+import { RaiderBadgeGenerator } from './idgenerator.js';
+import { MemeSoundboard } from './soundboard.js';
+import { AlienTranslator } from './translator.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Live UTC Clock
   const clockEl = document.getElementById('hud-clock');
   function updateClock() {
     const now = new Date();
-    clockEl.textContent = now.toUTCString().split(' ')[4] + ' UTC';
+    if (clockEl) {
+      clockEl.textContent = now.toUTCString().split(' ')[4] + ' UTC';
+    }
   }
   setInterval(updateClock, 1000);
   updateClock();
 
-  // 2. Audio Toggle & Interaction Auto-Start
+  // 2. Elapsed Raid Timer (Since Sept 20, 2019)
+  const raidElapsedEl = document.getElementById('raid-elapsed-badge');
+  const raidStartTime = new Date('2019-09-20T03:00:00Z').getTime();
+
+  function updateRaidTimer() {
+    if (!raidElapsedEl) return;
+    const diff = Date.now() - raidStartTime;
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const mins = Math.floor((diff / (1000 * 60)) % 60);
+    const secs = Math.floor((diff / 1000) % 60);
+    raidElapsedEl.textContent = `TIME SINCE 2019 RAID: ${days}D ${hours}H ${mins}M ${secs}S`;
+  }
+  setInterval(updateRaidTimer, 1000);
+  updateRaidTimer();
+
+  // 3. Master Audio Switch & Interaction Auto-Start
   const btnSound = document.getElementById('btn-sound-toggle');
   const soundIcon = document.getElementById('sound-icon');
   const soundLabel = document.getElementById('sound-label');
 
-  btnSound.addEventListener('click', () => {
-    const isMuted = sound.toggleMute();
-    soundIcon.textContent = isMuted ? '🔇' : '🔊';
-    soundLabel.textContent = isMuted ? 'AUDIO: MUTED' : 'AUDIO: ACTIVE';
-  });
+  if (btnSound) {
+    btnSound.addEventListener('click', () => {
+      const isMuted = sound.toggleMute();
+      if (soundIcon) soundIcon.textContent = isMuted ? '🔇' : '🔊';
+      if (soundLabel) soundLabel.textContent = isMuted ? 'AUDIO: MUTED' : 'AUDIO: ACTIVE';
+    });
+  }
 
-  // Enable audio on any first interaction
   const enableAudioOnFirstClick = () => {
     sound.ensureContext();
     window.removeEventListener('click', enableAudioOnFirstClick);
@@ -35,49 +57,70 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('click', enableAudioOnFirstClick);
   window.addEventListener('keydown', enableAudioOnFirstClick);
 
-  // 3. CRT Scanline Toggle
+  // 4. CRT Scanline Toggle
   const btnCrt = document.getElementById('btn-crt-toggle');
   const crtLabel = document.getElementById('crt-label');
-  btnCrt.addEventListener('click', () => {
-    document.body.classList.toggle('crt-disabled');
-    const disabled = document.body.classList.contains('crt-disabled');
-    crtLabel.textContent = disabled ? 'CRT: OFF' : 'CRT: ON';
-    sound.playClick(1000);
-  });
+  if (btnCrt) {
+    btnCrt.addEventListener('click', () => {
+      document.body.classList.toggle('crt-disabled');
+      const disabled = document.body.classList.contains('crt-disabled');
+      if (crtLabel) crtLabel.textContent = disabled ? 'CRT: OFF' : 'CRT: ON';
+      sound.playClick(1000);
+    });
+  }
 
-  // 4. Station Tab Navigation
+  // 5. Station Navigation Tabs
   const tabButtons = document.querySelectorAll('.tab-btn');
   const stationPanels = document.querySelectorAll('.station-panel');
 
+  function switchTab(targetTab) {
+    tabButtons.forEach((b) => b.classList.remove('active'));
+    stationPanels.forEach((p) => p.classList.remove('active'));
+
+    const activeBtn = document.querySelector(`.tab-btn[data-tab="${targetTab}"]`);
+    if (activeBtn) activeBtn.classList.add('active');
+
+    const targetPanel = document.getElementById(`station-${targetTab}`);
+    if (targetPanel) {
+      targetPanel.classList.add('active');
+    }
+    sound.playClick(1100);
+    window.dispatchEvent(new Event('resize'));
+  }
+
   tabButtons.forEach((btn) => {
     btn.addEventListener('click', () => {
-      const targetTab = btn.dataset.tab;
-      tabButtons.forEach((b) => b.classList.remove('active'));
-      stationPanels.forEach((p) => p.classList.remove('active'));
-
-      btn.classList.add('active');
-      const targetPanel = document.getElementById(`station-${targetTab}`);
-      if (targetPanel) {
-        targetPanel.classList.add('active');
-      }
-      sound.playClick(1100);
-
-      // Trigger resize on newly visible canvas engines
-      window.dispatchEvent(new Event('resize'));
+      switchTab(btn.dataset.tab);
     });
   });
 
-  // 5. Initialize Groom Lake Radar Station
+  const btnHeroPlay = document.getElementById('btn-hero-play');
+  if (btnHeroPlay) {
+    btnHeroPlay.addEventListener('click', () => {
+      switchTab('minigame');
+      if (minigame) minigame.start();
+    });
+  }
+
+  // 6. Initialize Groom Lake Radar
   const radarCanvas = document.getElementById('radar-canvas');
   let radar = null;
   if (radarCanvas) {
     radar = new RadarStation(radarCanvas, (target) => {
       if (!target) return;
-      document.getElementById('intel-designation').textContent = `${target.id} (${target.designation})`;
-      document.getElementById('intel-signature').textContent = target.signature;
-      document.getElementById('intel-velocity').textContent = target.speed;
-      document.getElementById('intel-origin').textContent = target.origin;
-      document.getElementById('target-intel-title').textContent = `LOCKED TARGET: [${target.id}]`;
+      const desEl = document.getElementById('intel-designation');
+      const sigEl = document.getElementById('intel-signature');
+      const velEl = document.getElementById('intel-velocity');
+      const origEl = document.getElementById('intel-origin');
+      const threatEl = document.getElementById('intel-threat');
+      const titleEl = document.getElementById('target-intel-title');
+
+      if (desEl) desEl.textContent = `${target.id} (${target.designation})`;
+      if (sigEl) sigEl.textContent = target.signature || 'CLASSIFIED';
+      if (velEl) velEl.textContent = target.speed || 'VARIABLE';
+      if (origEl) origEl.textContent = target.origin || 'UNKNOWN';
+      if (threatEl) threatEl.textContent = target.threat || 'MONITORED';
+      if (titleEl) titleEl.textContent = `LOCKED TARGET: [${target.id}]`;
     });
 
     const btnPing = document.getElementById('btn-ping-radar');
@@ -86,9 +129,54 @@ document.addEventListener('DOMContentLoaded', () => {
         sound.playRadarPing(0.3);
       });
     }
+
+    const btnDeploy = document.getElementById('btn-deploy-raider');
+    if (btnDeploy) {
+      btnDeploy.addEventListener('click', () => {
+        if (radar) radar.deployRaider();
+      });
+    }
   }
 
-  // 6. Initialize Element 115 Reactor Simulation
+  // 7. Initialize Naruto Runner Mini-Game
+  const minigameCanvas = document.getElementById('minigame-canvas');
+  let minigame = null;
+  if (minigameCanvas) {
+    minigame = new NarutoRunnerGame(minigameCanvas);
+    const btnStart = document.getElementById('btn-game-start');
+    if (btnStart) {
+      btnStart.addEventListener('click', () => {
+        minigame.start();
+      });
+    }
+  }
+
+  // 8. Initialize Raider ID & Alien Adoption Generator
+  const idCanvas = document.getElementById('idgen-canvas');
+  if (idCanvas) {
+    new RaiderBadgeGenerator(idCanvas, {
+      nameInput: document.getElementById('id-callsign'),
+      divisionSelect: document.getElementById('id-division'),
+      companionSelect: document.getElementById('id-companion'),
+      fuelSelect: document.getElementById('id-fuel'),
+      downloadBtn: document.getElementById('btn-download-badge'),
+      copyBtn: document.getElementById('btn-copy-badge')
+    });
+  }
+
+  // 9. Initialize Meme Soundboard
+  const soundboardContainer = document.getElementById('soundboard-container');
+  if (soundboardContainer) {
+    new MemeSoundboard(soundboardContainer);
+  }
+
+  // 10. Initialize Alien Translator
+  const translatorContainer = document.getElementById('translator-container');
+  if (translatorContainer) {
+    new AlienTranslator(translatorContainer);
+  }
+
+  // 11. Initialize Element 115 Reactor Simulation
   const reactorCanvas = document.getElementById('reactor-canvas');
   let reactor = null;
   if (reactorCanvas) {
@@ -100,7 +188,8 @@ document.addEventListener('DOMContentLoaded', () => {
       sliderInjection.addEventListener('input', (e) => {
         const val = parseInt(e.target.value);
         valInjection.textContent = `${val}% [${(val * 14.8).toFixed(1)} MW]`;
-        reactor.setPower(val);
+        reactor.setInjectionPower(val / 100);
+        sound.playGeigerClick(Math.floor(val / 6));
       });
     }
 
@@ -110,12 +199,14 @@ document.addEventListener('DOMContentLoaded', () => {
       btnDelta.addEventListener('click', () => {
         btnDelta.classList.add('active');
         btnOmicron.classList.remove('active');
-        reactor.setMode('DELTA');
+        reactor.setConfiguration('DELTA');
+        sound.playAlienWarble(800);
       });
       btnOmicron.addEventListener('click', () => {
         btnOmicron.classList.add('active');
         btnDelta.classList.remove('active');
-        reactor.setMode('OMICRON');
+        reactor.setConfiguration('OMICRON');
+        sound.playAlienWarble(520);
       });
     }
 
@@ -123,120 +214,77 @@ document.addEventListener('DOMContentLoaded', () => {
     if (btnOverload) {
       btnOverload.addEventListener('click', () => {
         reactor.triggerOverload();
+        sound.playSirenBurst(3);
+        sound.playFbiOpenUp();
       });
     }
   }
 
-  // 7. Initialize Cosmic RF Interceptor & Decoder
-  const spectrogramCanvas = document.getElementById('spectrogram-canvas');
-  let interceptor = null;
-  if (spectrogramCanvas) {
-    const glyphStream = document.getElementById('glyph-stream');
-    const decodedText = document.getElementById('decoded-result-text');
-    const decryptBtn = document.getElementById('btn-decrypt-signal');
-    const decryptSpinner = document.getElementById('decrypt-spinner');
-    const decryptBtnText = document.getElementById('decrypt-btn-text');
-
-    interceptor = new SignalInterceptor(spectrogramCanvas, (channel) => {
-      decodedText.textContent = channel.translation;
-      glyphStream.textContent = channel.glyphs;
-      decryptBtnText.textContent = 'TRANSMISSION DECRYPTED // VERIFIED';
-      decryptSpinner.style.display = 'none';
-      decryptBtn.disabled = false;
+  // 12. Declassified Dossiers Redaction Click/Hover
+  const redactedSpans = document.querySelectorAll('.redacted');
+  redactedSpans.forEach((span) => {
+    span.addEventListener('mouseenter', () => {
+      sound.playGeigerClick(2);
     });
-
-    // Preset buttons
-    const presetBtns = document.querySelectorAll('.preset-btn');
-    presetBtns.forEach((btn) => {
-      btn.addEventListener('click', () => {
-        presetBtns.forEach((b) => b.classList.remove('active'));
-        btn.classList.add('active');
-        const freq = btn.dataset.freq;
-        interceptor.tuneFrequency(freq);
-      });
-    });
-
-    if (decryptBtn) {
-      decryptBtn.addEventListener('click', () => {
-        decryptBtn.disabled = true;
-        decryptBtnText.textContent = 'DEMODULATING SUB-SPACE CARRIER...';
-        decryptSpinner.style.display = 'inline-block';
-        interceptor.startDecrypt();
-      });
-    }
-  }
-
-  // 8. DEFCON Alert Level System
-  const defconBtns = document.querySelectorAll('.defcon-btn');
-  function setDefcon(level) {
-    document.body.className = `defcon-${level}`;
-    defconBtns.forEach((btn) => {
-      btn.classList.toggle('active', parseInt(btn.dataset.level) === level);
-    });
-
-    if (level === 1) {
-      sound.startSiren();
-    } else {
-      sound.stopSiren();
-    }
-  }
-
-  defconBtns.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const lvl = parseInt(btn.dataset.level);
-      setDefcon(lvl);
-      sound.playClick(lvl === 1 ? 400 : 1200);
-    });
-  });
-
-  // 9. Redacted Dossiers Interactivity
-  const redactedElements = document.querySelectorAll('.redacted');
-  redactedElements.forEach((el) => {
-    const secretText = el.dataset.secret;
-    const placeholder = el.textContent;
-
-    el.addEventListener('click', () => {
-      const isRevealed = el.classList.toggle('revealed');
-      el.textContent = isRevealed ? secretText : placeholder;
-      sound.playClick(isRevealed ? 1500 : 800);
-    });
-
-    el.addEventListener('mouseenter', () => {
-      if (!el.classList.contains('revealed')) {
-        sound.playClick(2100);
-      }
+    span.addEventListener('click', () => {
+      span.classList.toggle('revealed');
+      sound.playClick(1400);
     });
   });
 
   const btnDeclassifyAll = document.getElementById('btn-declassify-all');
   const btnClassifyAll = document.getElementById('btn-classify-all');
-
   if (btnDeclassifyAll) {
     btnDeclassifyAll.addEventListener('click', () => {
-      redactedElements.forEach((el) => {
-        el.classList.add('revealed');
-        el.textContent = el.dataset.secret;
-      });
+      redactedSpans.forEach((span) => span.classList.add('revealed'));
       sound.playAccessGranted();
     });
   }
-
   if (btnClassifyAll) {
     btnClassifyAll.addEventListener('click', () => {
-      redactedElements.forEach((el) => {
-        el.classList.remove('revealed');
-        el.textContent = '████████████████████';
-      });
-      sound.playClick(600);
+      redactedSpans.forEach((span) => span.classList.remove('revealed'));
+      sound.playClick(700);
     });
   }
 
-  // 10. Initialize Terminal Mainframe CLI
+  // 13. DEFCON Posture Buttons
+  const defconButtons = document.querySelectorAll('.defcon-btn');
+  function setDefconLevel(level) {
+    document.body.className = document.body.className.replace(/defcon-[1-5]/g, '').trim();
+    document.body.classList.add(`defcon-${level}`);
+
+    defconButtons.forEach((b) => {
+      if (parseInt(b.dataset.level) === level) {
+        b.classList.add('active');
+      } else {
+        b.classList.remove('active');
+      }
+    });
+
+    if (level === 1) {
+      sound.startSiren();
+      const beacon = document.getElementById('emergency-beacon');
+      if (beacon) beacon.classList.add('active');
+    } else {
+      sound.stopSiren();
+      const beacon = document.getElementById('emergency-beacon');
+      if (beacon) beacon.classList.remove('active');
+      sound.playClick(800 + level * 100);
+    }
+  }
+
+  defconButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      setDefconLevel(parseInt(btn.dataset.level));
+    });
+  });
+
+  // 14. Initialize S-4 Mainframe Terminal
   const termContainer = document.getElementById('terminal-shell-container');
   if (termContainer) {
     new TerminalConsole(
       termContainer,
-      (lvl) => setDefcon(lvl),
+      (lvl) => setDefconLevel(lvl),
       () => {
         if (reactor) reactor.triggerOverload();
       }

@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>37°14′00″ N 115°48′30″ W // AREA 51 CLASSIFIED TERMINAL</title>
-    <meta name="description" content="Classified Extraterrestrial Research & Defense Command Terminal - Groom Lake / S-4 Installation 37°14′00″ N 115°48′30″ W" />
+    <title>37°14′00″ N 115°48′30″ W // OPERATION: STORM AREA 51</title>
+    <meta name="description" content="Area 51 Alien Meme Command & Classified Black-Site Terminal - Coordinates 37°14′00″ N 115°48′30″ W. They can't stop all of us." />
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -28,7 +28,7 @@
         <div class="hud-top-stripe">
           <div class="clearance-badge">
             <span class="warning-icon">▲</span>
-            <span>TOP SECRET // MAJESTIC-12 // SPECIAL ACCESS PROGRAM [S-4 GROOM LAKE]</span>
+            <span>TOP SECRET // MAJESTIC-12 // OPERATION: STORM AREA 51 // S-4 GROOM LAKE</span>
           </div>
           <div class="telemetry-bar">
             <span class="geo-coord">LAT: 37°14′00″ N</span>
@@ -50,7 +50,7 @@
             </div>
             <div class="brand-text">
               <h1 class="brand-title">37°14′00″ N 115°48′30″ W</h1>
-              <p class="brand-sub">AIR FORCE FLIGHT TEST CENTER // DETACHMENT 3 // PAPOOSE LAKE S-4</p>
+              <p class="brand-sub">THEY CAN'T STOP ALL OF US // CLAP ALIEN CHEEKS DIVISION // S-4 PAPOOSE</p>
             </div>
           </div>
 
@@ -79,22 +79,51 @@
           </div>
         </div>
 
+        <!-- HERO BANNER -->
+        <div class="meme-hero-banner">
+          <div class="hero-thumb-wrapper">
+            <img src="/assets/area51_meme_banner.jpg" alt="Area 51 Raid Naruto Runner & Alien Meme" class="hero-thumb-img" />
+          </div>
+          <div class="hero-info">
+            <div class="hero-tag-row">
+              <span class="hero-meme-badge">EST. SEPT 20, 2019</span>
+              <span class="hero-timer-badge" id="raid-elapsed-badge">CALCULATING RAID ELAPSED TIME...</span>
+            </div>
+            <h2 class="hero-headline">THEY CAN'T STOP ALL OF US — SEE THEM ALIENS</h2>
+            <p class="hero-tagline">
+              Classified defense radar tracking Naruto runners, playable Area 51 Escape mini-game, custom alien adoption permits, and synthesized meme soundboard.
+            </p>
+          </div>
+          <div class="hero-actions">
+            <button class="hero-btn" id="btn-hero-play">▶ PLAY ESCAPE GAME</button>
+          </div>
+        </div>
+
         <!-- STATION NAVIGATION TABS -->
         <nav class="station-nav">
           <button class="tab-btn active" data-tab="radar" id="tab-nav-radar">
-            <span class="tab-code">SEC-01</span> GROOM RADAR & AIRSPACE
+            <span class="tab-code">SEC-01</span> GROOM RADAR & RAID MAP
           </button>
-          <button class="tab-btn" data-tab="reactor" id="tab-nav-reactor">
-            <span class="tab-code">SEC-02</span> ELEMENT 115 GRAV-CORE
+          <button class="tab-btn" data-tab="minigame" id="tab-nav-minigame">
+            <span class="tab-code">SEC-02</span> 🏃 NARUTO ESCAPE (GAME)
           </button>
-          <button class="tab-btn" data-tab="interceptor" id="tab-nav-interceptor">
-            <span class="tab-code">SEC-03</span> COSMIC RF INTERCEPTOR
+          <button class="tab-btn" data-tab="idgen" id="tab-nav-idgen">
+            <span class="tab-code">SEC-03</span> 🪪 RAIDER ID & ALIEN PERMIT
+          </button>
+          <button class="tab-btn" data-tab="soundboard" id="tab-nav-soundboard">
+            <span class="tab-code">SEC-04</span> 🔊 ALIEN MEME SOUNDBOARD
           </button>
           <button class="tab-btn" data-tab="dossiers" id="tab-nav-dossiers">
-            <span class="tab-code">SEC-04</span> REDACTED DOSSIERS
+            <span class="tab-code">SEC-05</span> 📜 DECLASSIFIED DOSSIERS
+          </button>
+          <button class="tab-btn" data-tab="translator" id="tab-nav-translator">
+            <span class="tab-code">SEC-06</span> 👽 ALIEN TRANSLATOR
+          </button>
+          <button class="tab-btn" data-tab="reactor" id="tab-nav-reactor">
+            <span class="tab-code">SEC-07</span> ⚛️ ELEMENT 115 REACTOR
           </button>
           <button class="tab-btn" data-tab="terminal" id="tab-nav-terminal">
-            <span class="tab-code">SEC-05</span> S-4 MAINFRAME CLI
+            <span class="tab-code">SEC-08</span> 💻 S-4 MAINFRAME CLI
           </button>
         </nav>
       </header>
@@ -114,7 +143,8 @@
                 <canvas id="radar-canvas"></canvas>
               </div>
               <div class="radar-footer-controls">
-                <span class="hint-text"><span class="highlight-text">TIP:</span> Click any radar blip or anomaly to lock target telemetry.</span>
+                <span class="hint-text"><span class="highlight-text">TIP:</span> Click any radar blip (UAP, Naruto Runner, Kyle) to lock target telemetry.</span>
+                <button class="action-btn" id="btn-deploy-raider">🏃 DEPLOY REINFORCEMENTS</button>
                 <button class="action-btn" id="btn-ping-radar">MANUAL SWEEP PING</button>
               </div>
             </div>
@@ -128,38 +158,30 @@
               <div class="intel-body" id="target-intel-body">
                 <div class="intel-row">
                   <span class="label">DESIGNATION:</span>
-                  <span class="val highlight" id="intel-designation">UAP-ALPHA-9 (SPORT MODEL)</span>
+                  <span class="val highlight" id="intel-designation">RAID-NARUTO-01 (NARUTO RUNNERS)</span>
                 </div>
                 <div class="intel-row">
                   <span class="label">RADAR SIGNATURE:</span>
-                  <span class="val" id="intel-signature">GRAVIMETRIC DISTORTION // BENT PHOTONS</span>
+                  <span class="val" id="intel-signature">ORANGE HOODIE INFRARED HEAT // ARMS 180°</span>
                 </div>
                 <div class="intel-row">
                   <span class="label">ESTIMATED VELOCITY:</span>
-                  <span class="val cyan" id="intel-velocity">MACH 28.4 (21,700 MPH)</span>
-                </div>
-                <div class="intel-row">
-                  <span class="label">ACCELERATION:</span>
-                  <span class="val" id="intel-accel">850 G (NO INERTIAL DAMPENING DETECTED)</span>
-                </div>
-                <div class="intel-row">
-                  <span class="label">AIRFRAME GEOMETRY:</span>
-                  <span class="val" id="intel-geometry">DISCOID (16M DIAMETER x 4.5M HEIGHT)</span>
+                  <span class="val cyan" id="intel-velocity">MACH 2.8 (FASTER THAN BULLETS)</span>
                 </div>
                 <div class="intel-row">
                   <span class="label">ORIGIN VECTOR:</span>
-                  <span class="val" id="intel-origin">ZETA RETICULI BINARY SYSTEM (39.17 LY)</span>
+                  <span class="val" id="intel-origin">RACHEL, NEVADA HWY 375</span>
                 </div>
                 <div class="intel-row">
-                  <span class="label">PROPULSION MECHANISM:</span>
-                  <span class="val alert" id="intel-propulsion">ELEMENT 115 PROTON BOMBARDMENT REACTOR</span>
+                  <span class="label">THREAT POSTURE:</span>
+                  <span class="val alert" id="intel-threat">THEY CANNOT STOP ALL OF US</span>
                 </div>
                 <div class="intel-notes">
-                  <p class="notes-header">CLASSIFIED SURVEILLANCE LOG // ENTRY #8839:</p>
-                  <p class="notes-text">
-                    Craft demonstrated instantaneous right-angle vector shifts without aerodynamic friction heating. 
-                    Radar return shows alternating polarity phase shifts consistent with high-gradient gravitational distortion. 
-                    Do not engage with conventional F-22 interceptors.
+                  <p class="notes-header">CLASSIFIED SURVEILLANCE LOG // ENTRY #420-69:</p>
+                  <p class="notes-text" id="intel-notes-text">
+                    Thermal imaging detects large swarm of individuals sprinting with their torsos tilted 45 degrees forward and arms trailing behind. 
+                    Military radar cross-section is near zero due to superior aerodynamic posture. 
+                    Air Force guards report confusion as invaders demand to see the extraterrestrials and clap cheeks.
                   </p>
                 </div>
               </div>
@@ -167,12 +189,230 @@
           </div>
         </section>
 
-        <!-- 02: ELEMENT 115 GRAV-CORE SECTION -->
+        <!-- 02: NARUTO RUNNER AREA 51 ESCAPE MINI-GAME -->
+        <section class="station-panel" id="station-minigame">
+          <div class="tactical-card game-card">
+            <div class="card-header">
+              <span class="card-tag">STATION 02 // PLAYABLE ARCADE</span>
+              <h2 class="card-title">🏃 NARUTO RUNNER: AREA 51 ESCAPE</h2>
+              <span class="card-meta">DODGE GUARDS & LASERS // COLLECT MONSTER & RESCUE ALIENS!</span>
+            </div>
+            <div class="game-canvas-container">
+              <canvas id="minigame-canvas"></canvas>
+            </div>
+            <div class="game-controls-bar">
+              <div class="controls-legend">
+                <span>[SPACE / UP / CLICK] = JUMP (DOUBLE JUMP ENABLED)</span>
+                <span class="divider">|</span>
+                <span>[DOWN / S] = SLIDE UNDER HIGH LASER BEAMS</span>
+                <span class="divider">|</span>
+                <span>⚡ MONSTER = INVINCIBLE SHIELD SPEED BOOST</span>
+                <span class="divider">|</span>
+                <span>👽 ALIEN = +500 PTS</span>
+              </div>
+              <div class="game-action-buttons">
+                <button class="action-btn" id="btn-game-start">START / RESTART SPRINT</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 03: RAIDER ID & ALIEN ADOPTION PERMIT GENERATOR -->
+        <section class="station-panel" id="station-idgen">
+          <div class="tactical-card">
+            <div class="card-header">
+              <span class="card-tag">STATION 03 // OFFICIAL CLEARANCE</span>
+              <h2 class="card-title">🪪 AREA 51 RAIDER PERMIT & ALIEN ADOPTION CERTIFICATE</h2>
+              <span class="card-meta">GENERATE & DOWNLOAD YOUR AUTHENTIC HOLOGRAPHIC CLEARANCE BADGE</span>
+            </div>
+            <div class="id-gen-layout">
+              <div class="id-preview-wrapper">
+                <div class="id-canvas-card">
+                  <canvas id="idgen-canvas"></canvas>
+                </div>
+                <div class="game-action-buttons">
+                  <button class="action-btn-large" id="btn-download-badge">💾 DOWNLOAD OFFICIAL BADGE (PNG)</button>
+                  <button class="action-btn" id="btn-copy-badge">📋 COPY RAIDER STATUS</button>
+                </div>
+              </div>
+
+              <div class="id-controls-card">
+                <div class="id-form-fields">
+                  <div class="form-group">
+                    <label for="id-callsign">RAIDER CALLSIGN / CODENAME:</label>
+                    <input type="text" id="id-callsign" class="form-input" value="NARUTO_RUNNER_420" maxlength="24" />
+                  </div>
+                  <div class="form-group">
+                    <label for="id-division">CHOSEN RAID DIVISION:</label>
+                    <select id="id-division" class="form-select">
+                      <option value="NARUTO_SQUAD" selected>🏃 Naruto Runner Battalion (Speed 999)</option>
+                      <option value="KYLE_DRYWALL">⚡ Kyle Drywall Breacher (Monster Energy)</option>
+                      <option value="ROCK_THROWER">🪨 Rock Thrower Artillery (Range 500m)</option>
+                      <option value="ALIEN_SYMPATHIZER">👽 Alien Sympathizer (Ayy Lmao Division)</option>
+                      <option value="KAREN_COMMAND">📢 Karen Strategic Command (Demands Manager)</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="id-companion">RESCUED ALIEN COMPANION:</label>
+                    <select id="id-companion" class="form-select">
+                      <option value="PAUL_THE_ALIEN" selected>Paul (Drinks Baja Blast & Chill)</option>
+                      <option value="AYY_LMAO_GLORG">Glorg (Element 115 Connoisseur)</option>
+                      <option value="ZETA_RETICULI_CHAD">Zeta Reticuli Chad (Speaks Fluent Meme)</option>
+                      <option value="XENOMORPH_LITE">Xenomorph Lite (Cuddly Edition)</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="id-fuel">PRIMARY FUEL SOURCE:</label>
+                    <select id="id-fuel" class="form-select">
+                      <option value="MONSTER ENERGY MANGO LOCO" selected>Monster Energy (Mango Loco)</option>
+                      <option value="ELEMENT 115 BAJA BLAST">Element 115 Baja Blast</option>
+                      <option value="RED BULL & PIZZA ROLLS">Red Bull & Microwave Pizza Rolls</option>
+                      <option value="COSMIC STARDUST">Cosmic Stardust (Pure Adrenaline)</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 04: S-4 ALIEN MEME SOUNDBOARD -->
+        <section class="station-panel" id="station-soundboard">
+          <div class="tactical-card">
+            <div class="card-header">
+              <span class="card-tag">STATION 04 // SYNTHESIZED PROCEDURAL FX</span>
+              <h2 class="card-title">🔊 S-4 ALIEN MEME SOUNDBOARD</h2>
+              <span class="card-meta">REAL-TIME WEB AUDIO SYNTHESIZER // ZERO FILE DOWNLOADS</span>
+            </div>
+            <div id="soundboard-container">
+              <!-- Rendered dynamically by src/soundboard.js -->
+            </div>
+          </div>
+        </section>
+
+        <!-- 05: REDACTED MEME DOSSIERS SECTION -->
+        <section class="station-panel" id="station-dossiers">
+          <div class="dossiers-container">
+            <div class="dossiers-header-bar">
+              <div>
+                <span class="card-tag">MAJESTIC-12 ARCHIVES</span>
+                <h2 class="card-title">DECLASSIFIED ALIEN MEME DOSSIERS & EYE-ONLY BRIEFS</h2>
+                <p class="card-sub">Hover or click any blacked-out redacted segment to bypass security clearance filters.</p>
+              </div>
+              <div class="dossier-actions">
+                <button class="action-btn" id="btn-declassify-all">DECLASSIFY ALL (OVERRIDE)</button>
+                <button class="action-btn" id="btn-classify-all">RESTORE CLASSIFICATION</button>
+              </div>
+            </div>
+
+            <div class="dossiers-grid">
+              <!-- Dossier 1 -->
+              <article class="dossier-document">
+                <div class="dossier-stamp">TOP SECRET // MAJIC</div>
+                <div class="doc-header">
+                  <span class="doc-id">DOC-REF: RAID-SEPT-20-2019</span>
+                  <span class="doc-date">DATE: 20 SEPTEMBER 2019</span>
+                </div>
+                <h3 class="doc-title">AFTER-ACTION REPORT // OPERATION: STORM AREA 51</h3>
+                <div class="doc-content">
+                  <p>
+                    At approximately 03:00 hours, approximately 2,000,000 Facebook users RSVP'd to breach the 
+                    <span class="redacted" data-secret="Groom Lake S-4 subterranean installation">████████████████████████████</span>
+                    under the tactical doctrine: 
+                    <span class="redacted" data-secret="&quot;They can't stop all of us; if we Naruto run, we can move faster than their bullets.&quot;">████████████████████████████████████████████████████████████████</span>.
+                  </p>
+                  <p>
+                    Perimeter guards reported <span class="redacted" data-secret="a single legendary teenager sprinting behind a live news reporter">██████████████████████████████████████████</span>, 
+                    causing immediate morale collapse among base defense personnel. 
+                    The Kyles were supplied with <span class="redacted" data-secret="industrial quantities of Monster Energy to punch through perimeter drywall">██████████████████████████████████████████████████</span>.
+                  </p>
+                  <p>
+                    Strategic outcome: 
+                    <span class="redacted" data-secret="The aliens inside were cheering and requested we bring them Mountain Dew Baja Blast">██████████████████████████████████████████████████████████████</span>.
+                  </p>
+                </div>
+                <div class="doc-footer">
+                  <span>SIGNATORY: BASE COMMANDER</span>
+                  <span>SECURITY CODE: EYES ONLY POTUS</span>
+                </div>
+              </article>
+
+              <!-- Dossier 2 -->
+              <article class="dossier-document">
+                <div class="dossier-stamp">RESTRICTED DATA</div>
+                <div class="doc-header">
+                  <span class="doc-id">DOC-REF: S-4/SPORT-MODEL-115</span>
+                  <span class="doc-date">FACILITY: PAPOOSE LAKE BAY 4</span>
+                </div>
+                <h3 class="doc-title">BOB LAZAR // SPORT MODEL PROPULSION ANALYSIS</h3>
+                <div class="doc-content">
+                  <p>
+                    The craft cataloged as the <span class="redacted" data-secret="Sport Model (Flying Saucer)">██████████████████████████</span> 
+                    features zero rivets, welds, or visible control panels. It is powered by 
+                    <span class="redacted" data-secret="Element 115 (Moscovium) producing Gravity-A waves">████████████████████████████████████████</span>.
+                  </p>
+                  <p>
+                    Upon close chemical spectroscopy, researchers discovered that Element 115 
+                    <span class="redacted" data-secret="tastes suspiciously like carbonated lime glow-juice and Doritos dust">████████████████████████████████████████████████████████</span>. 
+                    When the three gravity amplifiers are rotated 180°, the saucer creates an 
+                    <span class="redacted" data-secret="anti-gravity bubble that lets occupants do donuts in mid-air over Nevada">████████████████████████████████████████████████████</span>.
+                  </p>
+                </div>
+                <div class="doc-footer">
+                  <span>ANALYST: BOB L. // S-4 PHYSICIST</span>
+                  <span>STATUS: 100% AUTHENTIC</span>
+                </div>
+              </article>
+
+              <!-- Dossier 3 -->
+              <article class="dossier-document">
+                <div class="dossier-stamp">COSMIC TOP SECRET</div>
+                <div class="doc-header">
+                  <span class="doc-id">DOC-REF: BIO-AUTOPSY-EBE-PAUL</span>
+                  <span class="doc-date">FACILITY: LEVEL 4 CRYOGENICS</span>
+                </div>
+                <h3 class="doc-title">INTERROGATION TRANSCRIPT // SPECIMEN "PAUL" (AYY LMAO)</h3>
+                <div class="doc-content">
+                  <p>
+                    Subject height 1.12 meters. Large almond black eyes. 
+                    When asked why their civilization traveled 39.17 light-years from Zeta Reticuli, specimen stated: 
+                    <span class="redacted" data-secret="&quot;Our interstellar Wi-Fi went down, and we wanted to finish watching Shrek 2.&quot;">████████████████████████████████████████████████████████</span>.
+                  </p>
+                  <p>
+                    Forensic blood work confirmed: 
+                    <span class="redacted" data-secret="Specimen is 80% Baja Blast and 20% cosmic chill vibes">████████████████████████████████████████████████████</span>. 
+                    Specimen requested <span class="redacted" data-secret="a pet cat, a skateboard, and freedom from military custody">████████████████████████████████████████</span>.
+                  </p>
+                </div>
+                <div class="doc-footer">
+                  <span>FORENSIC SPECIALIST: DR. D.W. BRONK</span>
+                  <span>CHAIN OF CUSTODY: S-4 VAULT 3</span>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- 06: ALIEN GLYPH TRANSLATOR SECTION -->
+        <section class="station-panel" id="station-translator">
+          <div class="tactical-card">
+            <div class="card-header">
+              <span class="card-tag">STATION 06 // COSMIC UPLINK</span>
+              <h2 class="card-title">👽 ALIEN MEME GLYPH TRANSLATOR & TRANSCEIVER</h2>
+              <span class="card-meta">TRANSLATE HUMAN MEMES INTO ZETA RETICULI RUNES & TRANSMIT AUDIO FREQUENCIES</span>
+            </div>
+            <div id="translator-container">
+              <!-- Rendered dynamically by src/translator.js -->
+            </div>
+          </div>
+        </section>
+
+        <!-- 07: ELEMENT 115 GRAV-CORE SECTION -->
         <section class="station-panel" id="station-reactor">
           <div class="panel-layout-2col">
             <div class="tactical-card reactor-card">
               <div class="card-header">
-                <span class="card-tag">STATION 02</span>
+                <span class="card-tag">STATION 07</span>
                 <h2 class="card-title">ELEMENT 115 (MOSCOVIUM) GRAVITATIONAL REACTOR</h2>
                 <span class="card-meta">S-4 PAPOOSE LAKE // BAY 2 TEST RIG</span>
               </div>
@@ -241,167 +481,7 @@
           </div>
         </section>
 
-        <!-- 03: COSMIC RF INTERCEPTOR SECTION -->
-        <section class="station-panel" id="station-interceptor">
-          <div class="panel-layout-2col">
-            <div class="tactical-card rf-card">
-              <div class="card-header">
-                <span class="card-tag">STATION 03</span>
-                <h2 class="card-title">AN/FLR-9 WULLENWEBER RF INTERCEPTOR</h2>
-                <span class="card-meta">REAL-TIME SPECTROGRAM // WATERFALL FFT</span>
-              </div>
-              <div class="canvas-container">
-                <canvas id="spectrogram-canvas"></canvas>
-              </div>
-              <div class="tuner-row">
-                <label for="freq-tuner">FREQUENCY TUNER (MHz):</label>
-                <div class="preset-buttons">
-                  <button class="preset-btn active" data-freq="1420.405">1420.405 MHz (H-Line)</button>
-                  <button class="preset-btn" data-freq="432.108">432.108 MHz (Zeta)</button>
-                  <button class="preset-btn" data-freq="7.460">7.460 MHz (ELF)</button>
-                </div>
-              </div>
-            </div>
-
-            <div class="tactical-card decrypt-card">
-              <div class="card-header">
-                <span class="card-tag">SIGNAL DECODER</span>
-                <h3 class="card-title">EXTRATERRESTRIAL TRANSMISSION PACKET</h3>
-              </div>
-              <div class="decoder-body">
-                <div class="alien-glyphs-container">
-                  <span class="glyphs-label">RAW ALIEN TRANSMISSION BURST:</span>
-                  <div class="glyph-stream" id="glyph-stream">⏁⍜⌰⏃⍀ ⎎⍀⟒⍾⎍⟒⋏☊⊬ ⟟⋏⏁⟒⍀☊⟒⌿⏁ 7-14-00 115-48-30</div>
-                </div>
-
-                <div class="decrypt-action-container">
-                  <button class="action-btn-large" id="btn-decrypt-signal">
-                    <span class="btn-spinner" id="decrypt-spinner" style="display: none;"></span>
-                    <span id="decrypt-btn-text">INITIALIZE DECRYPTION CIPHER</span>
-                  </button>
-                </div>
-
-                <div class="decoded-result-box" id="decoded-result-box">
-                  <div class="result-header">DECRYPTED MILITARY INTELLIGENCE:</div>
-                  <p class="result-text" id="decoded-result-text">
-                    AWAITING CRYPTOGRAPHIC DEMODULATION... CLICK 'INITIALIZE DECRYPTION CIPHER' TO PROCESS CARRIER WAVE.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- 04: REDACTED DOSSIERS SECTION -->
-        <section class="station-panel" id="station-dossiers">
-          <div class="dossiers-container">
-            <div class="dossiers-header-bar">
-              <div>
-                <span class="card-tag">MAJESTIC-12 ARCHIVES</span>
-                <h2 class="card-title">DECLASSIFIED INTELLIGENCE DOSSIERS & EYE-ONLY BRIEFS</h2>
-                <p class="card-sub">Hover or click any blacked-out redacted segment to bypass security clearance filters.</p>
-              </div>
-              <div class="dossier-actions">
-                <button class="action-btn" id="btn-declassify-all">DECLASSIFY ALL (OVERRIDE)</button>
-                <button class="action-btn" id="btn-classify-all">RESTORE CLASSIFICATION</button>
-              </div>
-            </div>
-
-            <div class="dossiers-grid">
-              <!-- Dossier 1 -->
-              <article class="dossier-document">
-                <div class="dossier-stamp">TOP SECRET // MAJIC</div>
-                <div class="doc-header">
-                  <span class="doc-id">DOC-REF: MJ-12/1947-08</span>
-                  <span class="doc-date">DATE: 24 SEPTEMBER 1947</span>
-                </div>
-                <h3 class="doc-title">MEMORANDUM FOR THE PRESIDENT // OPERATION MAJESTIC-12</h3>
-                <div class="doc-content">
-                  <p>
-                    On 07 July, 1947, a secret reconnaissance operation recovered remnants of an 
-                    <span class="redacted" data-secret="extraterrestrial aerospace craft">████████████████████████████</span>
-                    at a location approximately 75 miles northwest of 
-                    <span class="redacted" data-secret="Roswell Army Air Field, New Mexico">██████████████████████████████████</span>.
-                  </p>
-                  <p>
-                    Four <span class="redacted" data-secret="Non-Human Biological Entities (NHBE)">████████████████████████████████</span> 
-                    were recovered from the wreckage; three deceased, and one 
-                    <span class="redacted" data-secret="surviving entity designated EBE-1">████████████████████████████████</span>. 
-                    Transfer to <span class="redacted" data-secret="Groom Lake Underground Installation S-4">██████████████████████████████████████</span> 
-                    was executed under executive order.
-                  </p>
-                  <p>
-                    Propulsion mechanism relies on 
-                    <span class="redacted" data-secret="heavy element 115 generating directional Gravity-A waves">████████████████████████████████████████████████████████</span>.
-                  </p>
-                </div>
-                <div class="doc-footer">
-                  <span>SIGNATORY: DR. VANNEVAR BUSH</span>
-                  <span>SECURITY CODE: EYES ONLY POTUS</span>
-                </div>
-              </article>
-
-              <!-- Dossier 2 -->
-              <article class="dossier-document">
-                <div class="dossier-stamp">RESTRICTED DATA</div>
-                <div class="doc-header">
-                  <span class="doc-id">DOC-REF: S-4/TECH-SPEC-115</span>
-                  <span class="doc-date">FACILITY: PAPOOSE LAKE BAY 4</span>
-                </div>
-                <h3 class="doc-title">PROJECT GALILEO // REVERSE ENGINEERING REPORT</h3>
-                <div class="doc-content">
-                  <p>
-                    The craft cataloged as the <span class="redacted" data-secret="Sport Model (Flying Disc)">██████████████████████████</span> 
-                    features zero rivets, welds, or seams. Constructed from a continuous 
-                    <span class="redacted" data-secret="cellular titanium-bismuth metamaterial">████████████████████████████████████████</span> 
-                    capable of bending coherent light across the visual spectrum.
-                  </p>
-                  <p>
-                    Inside the lower deck, 
-                    <span class="redacted" data-secret="three gravity amplifiers are suspended on rotational gimbals">████████████████████████████████████████████████████████</span>. 
-                    When phased 180° out of alignment, the craft creates an 
-                    <span class="redacted" data-secret="artificial event horizon warping localized space-time">████████████████████████████████████████████████████</span>, 
-                    nullifying all inertial forces on interior occupants.
-                  </p>
-                </div>
-                <div class="doc-footer">
-                  <span>ANALYST: SEC-CLEARANCE-Q / S-4</span>
-                  <span>STATUS: ACTIVE STUDY</span>
-                </div>
-              </article>
-
-              <!-- Dossier 3 -->
-              <article class="dossier-document">
-                <div class="dossier-stamp">COSMIC TOP SECRET</div>
-                <div class="doc-header">
-                  <span class="doc-id">DOC-REF: BIO-AUTOPSY-EBE-1</span>
-                  <span class="doc-date">FACILITY: LEVEL 4 CRYOGENICS</span>
-                </div>
-                <h3 class="doc-title">PATHOLOGICAL EXAMINATION REPORT // EXTRATERRESTRIAL SPECIMEN</h3>
-                <div class="doc-content">
-                  <p>
-                    Subject height 1.12 meters. Weight 19.5 kg. Cranium significantly enlarged. 
-                    No external ears or prominent nasal cartilage. 
-                    Auditory receptors located 
-                    <span class="redacted" data-secret="internally with sensitivity up to 140 kHz">████████████████████████████████████████</span>.
-                  </p>
-                  <p>
-                    Blood contains 
-                    <span class="redacted" data-secret="no hemoglobin; oxygen transport mediated via copper-chlorophyll complex">████████████████████████████████████████████████████████████████</span>. 
-                    Cellular DNA exhibits 
-                    <span class="redacted" data-secret="triple-helix architecture synthesized with silicon base pairs">████████████████████████████████████████████████████████</span>.
-                  </p>
-                </div>
-                <div class="doc-footer">
-                  <span>FORENSIC SPECIALIST: DR. D.W. BRONK</span>
-                  <span>CHAIN OF CUSTODY: S-4 VAULT 3</span>
-                </div>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        <!-- 05: S-4 MAINFRAME CLI SECTION -->
+        <!-- 08: S-4 MAINFRAME CLI SECTION -->
         <section class="station-panel" id="station-terminal">
           <div class="terminal-shell-card" id="terminal-shell-container">
             <!-- Terminal rendered dynamically by src/terminal.js -->
@@ -417,12 +497,12 @@
           <span>AIR FORCE MATERIEL COMMAND // NEVADA TEST RANGE R-4808N</span>
         </div>
         <div class="footer-center">
-          <span class="security-warning">RESTRICTED AREA: TRESPASSING PUNISHABLE BY FEDERAL IMPRISONMENT & DEADLY FORCE</span>
+          <a href="https://37-14-00-n115-48-30-w.vercel.app" target="_blank" rel="noopener noreferrer" class="coord-link">VERCEL: 37°14′00′′n115°48′30′′w.vercel.app</a>
         </div>
         <div class="footer-right">
-          <span class="sys-version">GROOM-OS V4.19</span>
+          <a href="https://github.com/Hritish-Narayanan/37-14-00-n115-48-30-w" target="_blank" rel="noopener noreferrer" class="coord-link">GITHUB: 37-14-00-n115-48-30-w</a>
           <span class="divider">|</span>
-          <span class="uplink-status">UPLINK: ACTIVE</span>
+          <span class="uplink-status">CHEEKS: CLAPPED ✓</span>
         </div>
       </footer>
     </div>
