@@ -3,509 +3,264 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>37°14′00″ N 115°48′30″ W // OPERATION: STORM AREA 51</title>
-    <meta name="description" content="Area 51 Alien Meme Command & Classified Black-Site Terminal - Coordinates 37°14′00″ N 115°48′30″ W. They can't stop all of us." />
-    
-    <!-- Fonts -->
+    <title>37°14′00″ N 115°48′30″ W // STORM AREA 51</title>
+    <meta name="description" content="Official Area 51 Alien Meme Hub. 37°14′00″ N 115°48′30″ W. They can't stop all of us." />
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@600;800;900&family=Chakra+Petch:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@700;900&family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
 
     <link rel="stylesheet" href="./style.css" />
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%23020905' stroke='%2300ff88' stroke-width='4'/><polygon points='50,18 80,75 20,75' fill='none' stroke='%2300ff88' stroke-width='4'/><circle cx='50' cy='52' r='8' fill='%2300ff88'/></svg>" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%23020905' stroke='%2339ff14' stroke-width='4'/><text x='50' y='65' font-size='50' text-anchor='middle'>👽</text></svg>" />
   </head>
-  <body class="defcon-5">
-    <!-- CRT Overlay & Scanlines -->
-    <div class="crt-overlay" id="crt-overlay"></div>
-    <div class="crt-scanlines"></div>
+  <body>
+    <!-- Top Glowing Coordinates Bar -->
+    <div class="top-nav">
+      <div class="nav-container">
+        <div class="coords-badge">
+          <span class="pulse-green-dot"></span>
+          <span class="coord-text">37°14′00″ N 115°48′30″ W</span>
+          <span class="location-sub">GROOM LAKE, NV</span>
+        </div>
+        <div class="top-nav-links">
+          <a href="#game-section" class="nav-link">🏃 Naruto Game</a>
+          <a href="#soundboard-section" class="nav-link">🔊 Soundboard</a>
+          <a href="#badge-section" class="nav-link">🪪 Raid Pass</a>
+          <a href="#dossiers-section" class="nav-link">📜 Memes</a>
+          <button id="btn-sound-toggle" class="sound-toggle-btn" title="Toggle Sound">
+            <span id="sound-icon">🔊</span> SOUND
+          </button>
+        </div>
+      </div>
+    </div>
 
-    <!-- Alert Banner / Containment Siren Flasher -->
-    <div class="emergency-beacon" id="emergency-beacon"></div>
-
-    <div class="terminal-wrapper">
-      <!-- TOP STATUS / HUD NAVIGATION -->
-      <header class="hud-header">
-        <div class="hud-top-stripe">
-          <div class="clearance-badge">
-            <span class="warning-icon">▲</span>
-            <span>TOP SECRET // MAJESTIC-12 // OPERATION: STORM AREA 51 // S-4 GROOM LAKE</span>
+    <main class="page-container">
+      <!-- HERO SECTION -->
+      <section class="hero-section">
+        <div class="hero-content">
+          <div class="raid-pill">
+            <span class="pill-fire">🔥</span>
+            <span id="raid-timer-text">LOADING RAID COUNTER...</span>
           </div>
-          <div class="telemetry-bar">
-            <span class="geo-coord">LAT: 37°14′00″ N</span>
-            <span class="geo-coord">LON: 115°48′30″ W</span>
-            <span class="hud-time" id="hud-clock">00:00:00 UTC</span>
+          <h1 class="hero-title">THEY CAN'T STOP<br /><span class="highlight-neon">ALL OF US</span></h1>
+          <p class="hero-tagline">
+            Welcome to the official <strong>Area 51 Alien Meme Headquarters</strong> located at 
+            <span class="coord-inline">37°14′00″ N 115°48′30″ W</span>. 
+            Naruto run faster than their bullets, crack a cold Monster Energy, and rescue your alien bestie.
+          </p>
+          <div class="hero-btn-row">
+            <a href="#game-section" class="btn btn-primary" id="hero-play-btn">🏃 PLAY NARUTO ESCAPE</a>
+            <a href="#soundboard-section" class="btn btn-secondary">🔊 ALIEN SOUNDBOARD</a>
+            <a href="#badge-section" class="btn btn-accent">🪪 GET RAID PASS</a>
+          </div>
+        </div>
+        <div class="hero-image-wrapper">
+          <img src="/assets/area51_meme_banner.jpg" alt="Storm Area 51 Naruto Runner & Alien Meme" class="hero-img" />
+          <div class="image-caption">
+            <span>S-4 PAPOOSE LAKE // SEPTEMBER 20, 2019 ARCHIVE</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 1: NARUTO RUNNER MINI-GAME -->
+      <section id="game-section" class="meme-card game-section-card">
+        <div class="card-title-bar">
+          <div class="title-with-icon">
+            <span class="card-emoji">🏃</span>
+            <div>
+              <h2 class="card-heading">NARUTO RUNNER: AREA 51 ESCAPE</h2>
+              <p class="card-subheading">Jump and slide to breach the perimeter, grab Monster Energy, and save the aliens!</p>
+            </div>
+          </div>
+          <div class="game-score-pill">
+            <span id="game-high-score-display">RECORD: 0 PTS</span>
           </div>
         </div>
 
-        <div class="hud-main-bar">
-          <div class="hud-brand">
-            <div class="brand-logo">
-              <svg viewBox="0 0 100 100" class="alien-emblem">
-                <circle cx="50" cy="50" r="46" stroke="currentColor" stroke-width="2" fill="none" stroke-dasharray="4 2" />
-                <polygon points="50,15 85,75 15,75" stroke="currentColor" stroke-width="2.5" fill="none" />
-                <circle cx="50" cy="55" r="10" stroke="currentColor" stroke-width="1.5" fill="none" />
-                <line x1="50" y1="15" x2="50" y2="85" stroke="currentColor" stroke-width="1" stroke-dasharray="2 2" />
-                <line x1="15" y1="55" x2="85" y2="55" stroke="currentColor" stroke-width="1" stroke-dasharray="2 2" />
-              </svg>
-            </div>
-            <div class="brand-text">
-              <h1 class="brand-title">37°14′00″ N 115°48′30″ W</h1>
-              <p class="brand-sub">THEY CAN'T STOP ALL OF US // CLAP ALIEN CHEEKS DIVISION // S-4 PAPOOSE</p>
+        <div class="game-canvas-wrap">
+          <canvas id="minigame-canvas"></canvas>
+        </div>
+
+        <div class="game-hud-bar">
+          <div class="game-instructions">
+            <span><strong>[SPACE / CLICK]</strong> Jump & Double-Jump</span>
+            <span class="dot-sep">•</span>
+            <span><strong>[DOWN ARROW / S]</strong> Slide under lasers</span>
+            <span class="dot-sep">•</span>
+            <span>⚡ <strong>Monster Can:</strong> Invincible Speed Boost</span>
+            <span class="dot-sep">•</span>
+            <span>👽 <strong>Alien:</strong> +500 PTS</span>
+          </div>
+          <button id="btn-game-start" class="btn btn-primary btn-sm">▶ SPRINT / RESTART</button>
+        </div>
+      </section>
+
+      <!-- SECTION 2: ALIEN MEME SOUNDBOARD -->
+      <section id="soundboard-section" class="meme-card">
+        <div class="card-title-bar">
+          <div class="title-with-icon">
+            <span class="card-emoji">🔊</span>
+            <div>
+              <h2 class="card-heading">ALIEN MEME SOUNDBOARD</h2>
+              <p class="card-subheading">Instant synthesized sound effects built directly in your browser.</p>
             </div>
           </div>
+        </div>
+        <div id="soundboard-container">
+          <!-- Rendered by src/soundboard.js -->
+        </div>
+      </section>
 
-          <!-- DEFCON Controller -->
-          <div class="defcon-selector">
-            <span class="defcon-label">DEFCON POSTURE:</span>
-            <div class="defcon-buttons">
-              <button class="defcon-btn active" data-level="5" id="btn-defcon-5">5<span class="btn-sub">PEACE</span></button>
-              <button class="defcon-btn" data-level="4" id="btn-defcon-4">4<span class="btn-sub">WATCH</span></button>
-              <button class="defcon-btn" data-level="3" id="btn-defcon-3">3<span class="btn-sub">ALERT</span></button>
-              <button class="defcon-btn" data-level="2" id="btn-defcon-2">2<span class="btn-sub">ARMED</span></button>
-              <button class="defcon-btn defcon-critical" data-level="1" id="btn-defcon-1">1<span class="btn-sub">BREACH</span></button>
+      <!-- SECTION 3: RAIDER ID & ALIEN ADOPTION PASS -->
+      <section id="badge-section" class="meme-card">
+        <div class="card-title-bar">
+          <div class="title-with-icon">
+            <span class="card-emoji">🪪</span>
+            <div>
+              <h2 class="card-heading">OFFICIAL AREA 51 RAIDER PERMIT</h2>
+              <p class="card-subheading">Customize and download your certified holographic clearance card & alien pet adoption certificate.</p>
             </div>
-          </div>
-
-          <!-- Master Sound and Display Controls -->
-          <div class="hud-controls">
-            <button class="hud-btn" id="btn-sound-toggle" title="Toggle Terminal Audio">
-              <span class="hud-btn-icon" id="sound-icon">🔊</span>
-              <span id="sound-label">AUDIO: ACTIVE</span>
-            </button>
-            <button class="hud-btn" id="btn-crt-toggle" title="Toggle Retro CRT Scanlines">
-              <span class="hud-btn-icon">📺</span>
-              <span id="crt-label">CRT: ON</span>
-            </button>
           </div>
         </div>
 
-        <!-- HERO BANNER -->
-        <div class="meme-hero-banner">
-          <div class="hero-thumb-wrapper">
-            <img src="/assets/area51_meme_banner.jpg" alt="Area 51 Raid Naruto Runner & Alien Meme" class="hero-thumb-img" />
-          </div>
-          <div class="hero-info">
-            <div class="hero-tag-row">
-              <span class="hero-meme-badge">EST. SEPT 20, 2019</span>
-              <span class="hero-timer-badge" id="raid-elapsed-badge">CALCULATING RAID ELAPSED TIME...</span>
+        <div class="id-generator-layout">
+          <div class="id-canvas-wrapper">
+            <canvas id="idgen-canvas"></canvas>
+            <div class="badge-actions">
+              <button id="btn-download-badge" class="btn btn-primary">💾 DOWNLOAD BADGE (PNG)</button>
+              <button id="btn-copy-badge" class="btn btn-secondary">📋 COPY RAIDER STATUS</button>
             </div>
-            <h2 class="hero-headline">THEY CAN'T STOP ALL OF US — SEE THEM ALIENS</h2>
-            <p class="hero-tagline">
-              Classified defense radar tracking Naruto runners, playable Area 51 Escape mini-game, custom alien adoption permits, and synthesized meme soundboard.
+          </div>
+
+          <div class="id-inputs-wrapper">
+            <div class="input-field">
+              <label for="id-callsign">RAIDER CALLSIGN / NAME:</label>
+              <input type="text" id="id-callsign" value="NARUTO_RUNNER_420" maxlength="22" class="styled-input" />
+            </div>
+
+            <div class="input-field">
+              <label for="id-division">CHOOSE YOUR RAID SQUAD:</label>
+              <select id="id-division" class="styled-input">
+                <option value="NARUTO_SQUAD" selected>🏃 Naruto Runner Battalion (Speed 999)</option>
+                <option value="KYLE_DRYWALL">⚡ Kyle Drywall Breacher (Monster Energy)</option>
+                <option value="ROCK_THROWER">🪨 Rock Thrower Artillery (Range 500m)</option>
+                <option value="ALIEN_SYMPATHIZER">👽 Alien Sympathizer (Ayy Lmao Division)</option>
+                <option value="KAREN_COMMAND">📢 Karen Strategic Command (Demands Base Manager)</option>
+              </select>
+            </div>
+
+            <div class="input-field">
+              <label for="id-companion">RESCUED ALIEN COMPANION:</label>
+              <select id="id-companion" class="styled-input">
+                <option value="PAUL_THE_ALIEN" selected>Paul (Drinks Baja Blast & Chill)</option>
+                <option value="AYY_LMAO_GLORG">Glorg (Element 115 Connoisseur)</option>
+                <option value="ZETA_RETICULI_CHAD">Zeta Reticuli Chad (Speaks Fluent Meme)</option>
+                <option value="XENOMORPH_LITE">Xenomorph Lite (Cuddly Edition)</option>
+              </select>
+            </div>
+
+            <div class="input-field">
+              <label for="id-fuel">PREFERRED FUEL SOURCE:</label>
+              <select id="id-fuel" class="styled-input">
+                <option value="MONSTER ENERGY MANGO LOCO" selected>Monster Energy (Mango Loco)</option>
+                <option value="ELEMENT 115 BAJA BLAST">Element 115 Baja Blast</option>
+                <option value="RED BULL & PIZZA ROLLS">Red Bull & Microwave Pizza Rolls</option>
+                <option value="COSMIC STARDUST">Cosmic Stardust (Pure Adrenaline)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 4: DECLASSIFIED MEME DOSSIERS -->
+      <section id="dossiers-section" class="meme-card">
+        <div class="card-title-bar">
+          <div class="title-with-icon">
+            <span class="card-emoji">📜</span>
+            <div>
+              <h2 class="card-heading">TOP SECRET DECLASSIFIED MEMES</h2>
+              <p class="card-subheading">Hover or click any black redacted bar to reveal classified secrets.</p>
+            </div>
+          </div>
+          <div class="dossier-btn-group">
+            <button id="btn-declassify-all" class="btn btn-sm btn-secondary">DECLASSIFY ALL</button>
+            <button id="btn-classify-all" class="btn btn-sm btn-outline">HIDE</button>
+          </div>
+        </div>
+
+        <div class="meme-dossiers-grid">
+          <!-- Dossier 1 -->
+          <div class="dossier-box">
+            <div class="dossier-tag">DOC: RAID-SEPT-20-2019</div>
+            <h3>THE LEGENDARY NARUTO RUN</h3>
+            <p>
+              Air Force perimeter surveillance confirmed: 
+              <span class="redacted" data-secret="One legendary guy in an orange hoodie actually sprinted past the live news broadcast">██████████████████████████████████████████████████</span>, 
+              instantly achieving immortality. Military scientists concluded:
+              <span class="redacted" data-secret="Running with arms extended backwards reduces aerodynamic drag by 420%">██████████████████████████████████████████████████</span>.
             </p>
           </div>
-          <div class="hero-actions">
-            <button class="hero-btn" id="btn-hero-play">▶ PLAY ESCAPE GAME</button>
+
+          <!-- Dossier 2 -->
+          <div class="dossier-box">
+            <div class="dossier-tag">DOC: S-4/SPORT-MODEL-115</div>
+            <h3>BOB LAZAR'S FLYING SAUCER</h3>
+            <p>
+              The "Sport Model" flying disc recovered at Papoose Lake Bay 4 is powered by 
+              <span class="redacted" data-secret="Element 115 (Moscovium) producing Gravity-A waves">████████████████████████████████████████</span>.
+              According to lab taste tests, Element 115 
+              <span class="redacted" data-secret="is literally just Mountain Dew Baja Blast and microwave radiation">██████████████████████████████████████████████████</span>.
+            </p>
+          </div>
+
+          <!-- Dossier 3 -->
+          <div class="dossier-box">
+            <div class="dossier-tag">DOC: BIO-AUTOPSY-PAUL</div>
+            <h3>INTERVIEW WITH ALIEN "PAUL"</h3>
+            <p>
+              When interrogated about traveling 39.17 light-years from Zeta Reticuli to Earth, specimen replied: 
+              <span class="redacted" data-secret="&quot;Our interstellar Wi-Fi went down, and we heard you have Shrek 2 on DVD.&quot;">██████████████████████████████████████████████████</span>.
+              Specimen is currently 
+              <span class="redacted" data-secret="chilling in the breakroom eating chicken nuggets">████████████████████████████████████████</span>.
+            </p>
           </div>
         </div>
+      </section>
 
-        <!-- STATION NAVIGATION TABS -->
-        <nav class="station-nav">
-          <button class="tab-btn active" data-tab="radar" id="tab-nav-radar">
-            <span class="tab-code">SEC-01</span> GROOM RADAR & RAID MAP
-          </button>
-          <button class="tab-btn" data-tab="minigame" id="tab-nav-minigame">
-            <span class="tab-code">SEC-02</span> 🏃 NARUTO ESCAPE (GAME)
-          </button>
-          <button class="tab-btn" data-tab="idgen" id="tab-nav-idgen">
-            <span class="tab-code">SEC-03</span> 🪪 RAIDER ID & ALIEN PERMIT
-          </button>
-          <button class="tab-btn" data-tab="soundboard" id="tab-nav-soundboard">
-            <span class="tab-code">SEC-04</span> 🔊 ALIEN MEME SOUNDBOARD
-          </button>
-          <button class="tab-btn" data-tab="dossiers" id="tab-nav-dossiers">
-            <span class="tab-code">SEC-05</span> 📜 DECLASSIFIED DOSSIERS
-          </button>
-          <button class="tab-btn" data-tab="translator" id="tab-nav-translator">
-            <span class="tab-code">SEC-06</span> 👽 ALIEN TRANSLATOR
-          </button>
-          <button class="tab-btn" data-tab="reactor" id="tab-nav-reactor">
-            <span class="tab-code">SEC-07</span> ⚛️ ELEMENT 115 REACTOR
-          </button>
-          <button class="tab-btn" data-tab="terminal" id="tab-nav-terminal">
-            <span class="tab-code">SEC-08</span> 💻 S-4 MAINFRAME CLI
-          </button>
-        </nav>
-      </header>
-
-      <!-- MAIN OPERATIONAL STATIONS -->
-      <main class="terminal-main">
-        <!-- 01: GROOM RADAR & AIRSPACE SECTION -->
-        <section class="station-panel active" id="station-radar">
-          <div class="panel-layout-2col">
-            <div class="tactical-card radar-card">
-              <div class="card-header">
-                <span class="card-tag">STATION 01</span>
-                <h2 class="card-title">AN/FPS-117 GROOM LAKE SURVEILLANCE RADAR</h2>
-                <span class="card-meta">RANGE: 50 KM // R-4808N CLASSIFIED AIRSPACE</span>
-              </div>
-              <div class="canvas-container">
-                <canvas id="radar-canvas"></canvas>
-              </div>
-              <div class="radar-footer-controls">
-                <span class="hint-text"><span class="highlight-text">TIP:</span> Click any radar blip (UAP, Naruto Runner, Kyle) to lock target telemetry.</span>
-                <button class="action-btn" id="btn-deploy-raider">🏃 DEPLOY REINFORCEMENTS</button>
-                <button class="action-btn" id="btn-ping-radar">MANUAL SWEEP PING</button>
-              </div>
-            </div>
-
-            <!-- Radar Target Intelligence HUD -->
-            <div class="tactical-card telemetry-card">
-              <div class="card-header">
-                <span class="card-tag">TACTICAL INTEL</span>
-                <h3 class="card-title" id="target-intel-title">TARGET TELEMETRY: REAL-TIME</h3>
-              </div>
-              <div class="intel-body" id="target-intel-body">
-                <div class="intel-row">
-                  <span class="label">DESIGNATION:</span>
-                  <span class="val highlight" id="intel-designation">RAID-NARUTO-01 (NARUTO RUNNERS)</span>
-                </div>
-                <div class="intel-row">
-                  <span class="label">RADAR SIGNATURE:</span>
-                  <span class="val" id="intel-signature">ORANGE HOODIE INFRARED HEAT // ARMS 180°</span>
-                </div>
-                <div class="intel-row">
-                  <span class="label">ESTIMATED VELOCITY:</span>
-                  <span class="val cyan" id="intel-velocity">MACH 2.8 (FASTER THAN BULLETS)</span>
-                </div>
-                <div class="intel-row">
-                  <span class="label">ORIGIN VECTOR:</span>
-                  <span class="val" id="intel-origin">RACHEL, NEVADA HWY 375</span>
-                </div>
-                <div class="intel-row">
-                  <span class="label">THREAT POSTURE:</span>
-                  <span class="val alert" id="intel-threat">THEY CANNOT STOP ALL OF US</span>
-                </div>
-                <div class="intel-notes">
-                  <p class="notes-header">CLASSIFIED SURVEILLANCE LOG // ENTRY #420-69:</p>
-                  <p class="notes-text" id="intel-notes-text">
-                    Thermal imaging detects large swarm of individuals sprinting with their torsos tilted 45 degrees forward and arms trailing behind. 
-                    Military radar cross-section is near zero due to superior aerodynamic posture. 
-                    Air Force guards report confusion as invaders demand to see the extraterrestrials and clap cheeks.
-                  </p>
-                </div>
-              </div>
+      <!-- SECTION 5: ALIEN GLYPH TRANSLATOR -->
+      <section id="translator-section" class="meme-card">
+        <div class="card-title-bar">
+          <div class="title-with-icon">
+            <span class="card-emoji">👽</span>
+            <div>
+              <h2 class="card-heading">ENGLISH TO ALIEN RUNE TRANSLATOR</h2>
+              <p class="card-subheading">Type any English meme to convert it into Zeta Reticuli extraterrestrial runes.</p>
             </div>
           </div>
-        </section>
-
-        <!-- 02: NARUTO RUNNER AREA 51 ESCAPE MINI-GAME -->
-        <section class="station-panel" id="station-minigame">
-          <div class="tactical-card game-card">
-            <div class="card-header">
-              <span class="card-tag">STATION 02 // PLAYABLE ARCADE</span>
-              <h2 class="card-title">🏃 NARUTO RUNNER: AREA 51 ESCAPE</h2>
-              <span class="card-meta">DODGE GUARDS & LASERS // COLLECT MONSTER & RESCUE ALIENS!</span>
-            </div>
-            <div class="game-canvas-container">
-              <canvas id="minigame-canvas"></canvas>
-            </div>
-            <div class="game-controls-bar">
-              <div class="controls-legend">
-                <span>[SPACE / UP / CLICK] = JUMP (DOUBLE JUMP ENABLED)</span>
-                <span class="divider">|</span>
-                <span>[DOWN / S] = SLIDE UNDER HIGH LASER BEAMS</span>
-                <span class="divider">|</span>
-                <span>⚡ MONSTER = INVINCIBLE SHIELD SPEED BOOST</span>
-                <span class="divider">|</span>
-                <span>👽 ALIEN = +500 PTS</span>
-              </div>
-              <div class="game-action-buttons">
-                <button class="action-btn" id="btn-game-start">START / RESTART SPRINT</button>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- 03: RAIDER ID & ALIEN ADOPTION PERMIT GENERATOR -->
-        <section class="station-panel" id="station-idgen">
-          <div class="tactical-card">
-            <div class="card-header">
-              <span class="card-tag">STATION 03 // OFFICIAL CLEARANCE</span>
-              <h2 class="card-title">🪪 AREA 51 RAIDER PERMIT & ALIEN ADOPTION CERTIFICATE</h2>
-              <span class="card-meta">GENERATE & DOWNLOAD YOUR AUTHENTIC HOLOGRAPHIC CLEARANCE BADGE</span>
-            </div>
-            <div class="id-gen-layout">
-              <div class="id-preview-wrapper">
-                <div class="id-canvas-card">
-                  <canvas id="idgen-canvas"></canvas>
-                </div>
-                <div class="game-action-buttons">
-                  <button class="action-btn-large" id="btn-download-badge">💾 DOWNLOAD OFFICIAL BADGE (PNG)</button>
-                  <button class="action-btn" id="btn-copy-badge">📋 COPY RAIDER STATUS</button>
-                </div>
-              </div>
-
-              <div class="id-controls-card">
-                <div class="id-form-fields">
-                  <div class="form-group">
-                    <label for="id-callsign">RAIDER CALLSIGN / CODENAME:</label>
-                    <input type="text" id="id-callsign" class="form-input" value="NARUTO_RUNNER_420" maxlength="24" />
-                  </div>
-                  <div class="form-group">
-                    <label for="id-division">CHOSEN RAID DIVISION:</label>
-                    <select id="id-division" class="form-select">
-                      <option value="NARUTO_SQUAD" selected>🏃 Naruto Runner Battalion (Speed 999)</option>
-                      <option value="KYLE_DRYWALL">⚡ Kyle Drywall Breacher (Monster Energy)</option>
-                      <option value="ROCK_THROWER">🪨 Rock Thrower Artillery (Range 500m)</option>
-                      <option value="ALIEN_SYMPATHIZER">👽 Alien Sympathizer (Ayy Lmao Division)</option>
-                      <option value="KAREN_COMMAND">📢 Karen Strategic Command (Demands Manager)</option>
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <label for="id-companion">RESCUED ALIEN COMPANION:</label>
-                    <select id="id-companion" class="form-select">
-                      <option value="PAUL_THE_ALIEN" selected>Paul (Drinks Baja Blast & Chill)</option>
-                      <option value="AYY_LMAO_GLORG">Glorg (Element 115 Connoisseur)</option>
-                      <option value="ZETA_RETICULI_CHAD">Zeta Reticuli Chad (Speaks Fluent Meme)</option>
-                      <option value="XENOMORPH_LITE">Xenomorph Lite (Cuddly Edition)</option>
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <label for="id-fuel">PRIMARY FUEL SOURCE:</label>
-                    <select id="id-fuel" class="form-select">
-                      <option value="MONSTER ENERGY MANGO LOCO" selected>Monster Energy (Mango Loco)</option>
-                      <option value="ELEMENT 115 BAJA BLAST">Element 115 Baja Blast</option>
-                      <option value="RED BULL & PIZZA ROLLS">Red Bull & Microwave Pizza Rolls</option>
-                      <option value="COSMIC STARDUST">Cosmic Stardust (Pure Adrenaline)</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- 04: S-4 ALIEN MEME SOUNDBOARD -->
-        <section class="station-panel" id="station-soundboard">
-          <div class="tactical-card">
-            <div class="card-header">
-              <span class="card-tag">STATION 04 // SYNTHESIZED PROCEDURAL FX</span>
-              <h2 class="card-title">🔊 S-4 ALIEN MEME SOUNDBOARD</h2>
-              <span class="card-meta">REAL-TIME WEB AUDIO SYNTHESIZER // ZERO FILE DOWNLOADS</span>
-            </div>
-            <div id="soundboard-container">
-              <!-- Rendered dynamically by src/soundboard.js -->
-            </div>
-          </div>
-        </section>
-
-        <!-- 05: REDACTED MEME DOSSIERS SECTION -->
-        <section class="station-panel" id="station-dossiers">
-          <div class="dossiers-container">
-            <div class="dossiers-header-bar">
-              <div>
-                <span class="card-tag">MAJESTIC-12 ARCHIVES</span>
-                <h2 class="card-title">DECLASSIFIED ALIEN MEME DOSSIERS & EYE-ONLY BRIEFS</h2>
-                <p class="card-sub">Hover or click any blacked-out redacted segment to bypass security clearance filters.</p>
-              </div>
-              <div class="dossier-actions">
-                <button class="action-btn" id="btn-declassify-all">DECLASSIFY ALL (OVERRIDE)</button>
-                <button class="action-btn" id="btn-classify-all">RESTORE CLASSIFICATION</button>
-              </div>
-            </div>
-
-            <div class="dossiers-grid">
-              <!-- Dossier 1 -->
-              <article class="dossier-document">
-                <div class="dossier-stamp">TOP SECRET // MAJIC</div>
-                <div class="doc-header">
-                  <span class="doc-id">DOC-REF: RAID-SEPT-20-2019</span>
-                  <span class="doc-date">DATE: 20 SEPTEMBER 2019</span>
-                </div>
-                <h3 class="doc-title">AFTER-ACTION REPORT // OPERATION: STORM AREA 51</h3>
-                <div class="doc-content">
-                  <p>
-                    At approximately 03:00 hours, approximately 2,000,000 Facebook users RSVP'd to breach the 
-                    <span class="redacted" data-secret="Groom Lake S-4 subterranean installation">████████████████████████████</span>
-                    under the tactical doctrine: 
-                    <span class="redacted" data-secret="&quot;They can't stop all of us; if we Naruto run, we can move faster than their bullets.&quot;">████████████████████████████████████████████████████████████████</span>.
-                  </p>
-                  <p>
-                    Perimeter guards reported <span class="redacted" data-secret="a single legendary teenager sprinting behind a live news reporter">██████████████████████████████████████████</span>, 
-                    causing immediate morale collapse among base defense personnel. 
-                    The Kyles were supplied with <span class="redacted" data-secret="industrial quantities of Monster Energy to punch through perimeter drywall">██████████████████████████████████████████████████</span>.
-                  </p>
-                  <p>
-                    Strategic outcome: 
-                    <span class="redacted" data-secret="The aliens inside were cheering and requested we bring them Mountain Dew Baja Blast">██████████████████████████████████████████████████████████████</span>.
-                  </p>
-                </div>
-                <div class="doc-footer">
-                  <span>SIGNATORY: BASE COMMANDER</span>
-                  <span>SECURITY CODE: EYES ONLY POTUS</span>
-                </div>
-              </article>
-
-              <!-- Dossier 2 -->
-              <article class="dossier-document">
-                <div class="dossier-stamp">RESTRICTED DATA</div>
-                <div class="doc-header">
-                  <span class="doc-id">DOC-REF: S-4/SPORT-MODEL-115</span>
-                  <span class="doc-date">FACILITY: PAPOOSE LAKE BAY 4</span>
-                </div>
-                <h3 class="doc-title">BOB LAZAR // SPORT MODEL PROPULSION ANALYSIS</h3>
-                <div class="doc-content">
-                  <p>
-                    The craft cataloged as the <span class="redacted" data-secret="Sport Model (Flying Saucer)">██████████████████████████</span> 
-                    features zero rivets, welds, or visible control panels. It is powered by 
-                    <span class="redacted" data-secret="Element 115 (Moscovium) producing Gravity-A waves">████████████████████████████████████████</span>.
-                  </p>
-                  <p>
-                    Upon close chemical spectroscopy, researchers discovered that Element 115 
-                    <span class="redacted" data-secret="tastes suspiciously like carbonated lime glow-juice and Doritos dust">████████████████████████████████████████████████████████</span>. 
-                    When the three gravity amplifiers are rotated 180°, the saucer creates an 
-                    <span class="redacted" data-secret="anti-gravity bubble that lets occupants do donuts in mid-air over Nevada">████████████████████████████████████████████████████</span>.
-                  </p>
-                </div>
-                <div class="doc-footer">
-                  <span>ANALYST: BOB L. // S-4 PHYSICIST</span>
-                  <span>STATUS: 100% AUTHENTIC</span>
-                </div>
-              </article>
-
-              <!-- Dossier 3 -->
-              <article class="dossier-document">
-                <div class="dossier-stamp">COSMIC TOP SECRET</div>
-                <div class="doc-header">
-                  <span class="doc-id">DOC-REF: BIO-AUTOPSY-EBE-PAUL</span>
-                  <span class="doc-date">FACILITY: LEVEL 4 CRYOGENICS</span>
-                </div>
-                <h3 class="doc-title">INTERROGATION TRANSCRIPT // SPECIMEN "PAUL" (AYY LMAO)</h3>
-                <div class="doc-content">
-                  <p>
-                    Subject height 1.12 meters. Large almond black eyes. 
-                    When asked why their civilization traveled 39.17 light-years from Zeta Reticuli, specimen stated: 
-                    <span class="redacted" data-secret="&quot;Our interstellar Wi-Fi went down, and we wanted to finish watching Shrek 2.&quot;">████████████████████████████████████████████████████████</span>.
-                  </p>
-                  <p>
-                    Forensic blood work confirmed: 
-                    <span class="redacted" data-secret="Specimen is 80% Baja Blast and 20% cosmic chill vibes">████████████████████████████████████████████████████</span>. 
-                    Specimen requested <span class="redacted" data-secret="a pet cat, a skateboard, and freedom from military custody">████████████████████████████████████████</span>.
-                  </p>
-                </div>
-                <div class="doc-footer">
-                  <span>FORENSIC SPECIALIST: DR. D.W. BRONK</span>
-                  <span>CHAIN OF CUSTODY: S-4 VAULT 3</span>
-                </div>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        <!-- 06: ALIEN GLYPH TRANSLATOR SECTION -->
-        <section class="station-panel" id="station-translator">
-          <div class="tactical-card">
-            <div class="card-header">
-              <span class="card-tag">STATION 06 // COSMIC UPLINK</span>
-              <h2 class="card-title">👽 ALIEN MEME GLYPH TRANSLATOR & TRANSCEIVER</h2>
-              <span class="card-meta">TRANSLATE HUMAN MEMES INTO ZETA RETICULI RUNES & TRANSMIT AUDIO FREQUENCIES</span>
-            </div>
-            <div id="translator-container">
-              <!-- Rendered dynamically by src/translator.js -->
-            </div>
-          </div>
-        </section>
-
-        <!-- 07: ELEMENT 115 GRAV-CORE SECTION -->
-        <section class="station-panel" id="station-reactor">
-          <div class="panel-layout-2col">
-            <div class="tactical-card reactor-card">
-              <div class="card-header">
-                <span class="card-tag">STATION 07</span>
-                <h2 class="card-title">ELEMENT 115 (MOSCOVIUM) GRAVITATIONAL REACTOR</h2>
-                <span class="card-meta">S-4 PAPOOSE LAKE // BAY 2 TEST RIG</span>
-              </div>
-              <div class="canvas-container">
-                <canvas id="reactor-canvas"></canvas>
-              </div>
-            </div>
-
-            <div class="tactical-card controls-card">
-              <div class="card-header">
-                <span class="card-tag">CONTAINMENT SYSTEM</span>
-                <h3 class="card-title">SUBATOMIC ACCELERATOR CONTROLS</h3>
-              </div>
-              <div class="reactor-controls-wrapper">
-                <div class="control-group">
-                  <div class="control-label-row">
-                    <label for="slider-injection">PROTON INJECTION POWER</label>
-                    <span class="control-value" id="val-injection">72% [1,065.6 MW]</span>
-                  </div>
-                  <input type="range" id="slider-injection" min="10" max="100" value="72" />
-                  <span class="control-hint">Accelerates protons to transmute Element 115 into Element 116.</span>
-                </div>
-
-                <div class="control-group">
-                  <label>GRAVITY AMPLIFIER CONFIGURATION</label>
-                  <div class="mode-toggle-group">
-                    <button class="mode-btn active" data-mode="DELTA" id="btn-mode-delta">
-                      <strong>DELTA MODE</strong>
-                      <span>Long-distance Space-Time Warp</span>
-                    </button>
-                    <button class="mode-btn" data-mode="OMICRON" id="btn-mode-omicron">
-                      <strong>OMICRON MODE</strong>
-                      <span>Low-altitude Planetary Hover</span>
-                    </button>
-                  </div>
-                </div>
-
-                <div class="telemetry-box">
-                  <div class="telemetry-grid">
-                    <div class="tele-item">
-                      <span class="tele-label">GRAVITY-A WAVE FREQ</span>
-                      <span class="tele-num cyan">7.46 Hz</span>
-                    </div>
-                    <div class="tele-item">
-                      <span class="tele-label">MAGNETIC FLUX</span>
-                      <span class="tele-num">1.84 Tesla</span>
-                    </div>
-                    <div class="tele-item">
-                      <span class="tele-label">CORE TEMPERATURE</span>
-                      <span class="tele-num">294.1 K (STABLE)</span>
-                    </div>
-                    <div class="tele-item">
-                      <span class="tele-label">MASS DEFICIT</span>
-                      <span class="tele-num alert">-0.00042g</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="reactor-action-row">
-                  <button class="danger-btn" id="btn-trigger-overload">
-                    <span>⚠️ INDUCE SUBATOMIC OVERLOAD</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- 08: S-4 MAINFRAME CLI SECTION -->
-        <section class="station-panel" id="station-terminal">
-          <div class="terminal-shell-card" id="terminal-shell-container">
-            <!-- Terminal rendered dynamically by src/terminal.js -->
-          </div>
-        </section>
-      </main>
-
-      <!-- BOTTOM CLASSIFIED FOOTER -->
-      <footer class="hud-footer">
-        <div class="footer-left">
-          <span>COORDINATES: <a href="https://maps.google.com/?q=37.2350,-115.8111" target="_blank" rel="noopener noreferrer" class="coord-link">37°14′00″ N 115°48′30″ W</a></span>
-          <span class="divider">|</span>
-          <span>AIR FORCE MATERIEL COMMAND // NEVADA TEST RANGE R-4808N</span>
         </div>
-        <div class="footer-center">
-          <a href="https://37-14-00-n115-48-30-w.vercel.app" target="_blank" rel="noopener noreferrer" class="coord-link">VERCEL: 37°14′00′′n115°48′30′′w.vercel.app</a>
+        <div id="translator-container">
+          <!-- Rendered by src/translator.js -->
         </div>
-        <div class="footer-right">
-          <a href="https://github.com/Hritish-Narayanan/37-14-00-n115-48-30-w" target="_blank" rel="noopener noreferrer" class="coord-link">GITHUB: 37-14-00-n115-48-30-w</a>
-          <span class="divider">|</span>
-          <span class="uplink-status">CHEEKS: CLAPPED ✓</span>
+      </section>
+    </main>
+
+    <!-- SIMPLE MEME FOOTER -->
+    <footer class="simple-footer">
+      <div class="footer-inner">
+        <div class="footer-coord">
+          <span>COORDINATES:</span>
+          <a href="https://maps.google.com/?q=37.2350,-115.8111" target="_blank" rel="noopener noreferrer">37°14′00″ N 115°48′30″ W</a>
         </div>
-      </footer>
-    </div>
+        <div class="footer-links">
+          <a href="https://37-14-00-n115-48-30-w.vercel.app" target="_blank" rel="noopener noreferrer">37°14′00′′n115°48′30′′w.vercel.app</a>
+          <span class="sep">•</span>
+          <a href="https://github.com/Hritish-Narayanan/37-14-00-n115-48-30-w" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <span class="sep">•</span>
+          <span>EST. SEPT 20, 2019 // CLAP CHEEKS DIVISION</span>
+        </div>
+      </div>
+    </footer>
 
     <script type="module" src="./src/main.js"></script>
   </body>
