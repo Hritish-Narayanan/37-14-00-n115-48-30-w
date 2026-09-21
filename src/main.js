@@ -1,4 +1,4 @@
-// Simple Area 51 Alien Meme Hub Orchestrator
+// Terminal 00 // S-4 Groom Lake Orchestrator
 import { sound } from './audio.js';
 import { NarutoRunnerGame } from './minigame.js';
 import { RaiderBadgeGenerator } from './idgenerator.js';
@@ -6,40 +6,90 @@ import { MemeSoundboard } from './soundboard.js';
 import { AlienTranslator } from './translator.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Elapsed Raid Counter (Since September 20, 2019)
-  const raidTimerText = document.getElementById('raid-timer-text');
+  // 1. Terminal 00 Autoplay Overlay & Background Waves Audio
+  const bgAudio = document.getElementById('bg-music');
+  let audioPlaying = false;
+
+  function attemptPlayAudio() {
+    if (!bgAudio) return;
+    const promise = bgAudio.play();
+    if (promise !== undefined) {
+      promise
+        .then(() => {
+          audioPlaying = true;
+          updateSoundButtonState(true);
+        })
+        .catch(() => {
+          // Create iconic Terminal 00 "ListenWell" Autoplay Cover
+          const cover = document.createElement('div');
+          cover.id = 'autoplay-cover';
+          cover.innerHTML = `
+            <img src="/images/ListenWell.gif" draggable="false" alt="Listen Well" />
+            <p>
+              Ｓｏｍｅｔｈｉｎｇ  ｈａｓ  ｏｂｆｕｓｃａｔｅｄ  ｔｈｅｉｒ  ｖｏｉｃｅｓ  ｏｎｃｅ  ｍｏｒｅ．．．<br><br>
+              Ｎｏ  ｍａｔｔｅｒ，  Ｉ  ｓｈａｌｌ  ｍａｋｅ  ｙｏｕ  <span style="color: #D2738A;">ＬＩＳＴＥＮ</span>．<br><br>
+              ［ ＣＬＩＣＫ  ＴＯ  ＰＥＮＥＴＲＡＴＥ  ＴＨＥ  ＶＯＩＤ ］
+            </p>
+          `;
+          document.body.appendChild(cover);
+
+          cover.addEventListener('click', () => {
+            cover.classList.add('hide');
+            setTimeout(() => {
+              if (cover.parentNode) cover.parentNode.removeChild(cover);
+            }, 800);
+
+            sound.ensureContext();
+            bgAudio.play().then(() => {
+              audioPlaying = true;
+              updateSoundButtonState(true);
+            }).catch(() => {});
+          });
+        });
+    }
+  }
+
+  const btnSound = document.getElementById('btn-sound-toggle');
+  function updateSoundButtonState(active) {
+    if (!btnSound) return;
+    btnSound.textContent = active ? '［ ＳＯＵＮＤ ： ＯＮ ］' : '［ ＳＯＵＮＤ ： ＯＦＦ ］';
+  }
+
+  if (btnSound) {
+    btnSound.addEventListener('click', () => {
+      sound.ensureContext();
+      if (!bgAudio) return;
+      if (bgAudio.paused) {
+        bgAudio.play();
+        audioPlaying = true;
+        updateSoundButtonState(true);
+        sound.setVolume(0.25);
+      } else {
+        bgAudio.pause();
+        audioPlaying = false;
+        updateSoundButtonState(false);
+        sound.setVolume(0);
+      }
+    });
+  }
+
+  attemptPlayAudio();
+
+  // 2. Terminal 00 Time Elapsed Counter
+  const raidTimerEl = document.getElementById('term-raid-timer');
   const raidStartTime = new Date('2019-09-20T03:00:00Z').getTime();
 
   function updateRaidTimer() {
-    if (!raidTimerText) return;
+    if (!raidTimerEl) return;
     const diff = Date.now() - raidStartTime;
     const days = Math.floor(diff / (1000 * 60 * 60 * 24));
     const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
     const mins = Math.floor((diff / (1000 * 60)) % 60);
     const secs = Math.floor((diff / 1000) % 60);
-    raidTimerText.textContent = `SEPT 20, 2019 RAID: ${days} DAYS, ${hours}H ${mins}M ${secs}S AGO`;
+    raidTimerEl.textContent = `［ ＴＩＭＥ  ＳＩＮＣＥ  ＴＨＥ  ＳＥＰＴＥＭＢＥＲ  ２０，  ２０１９  ＢＲＥＡＣＨ ： ${days}Ｄ  ${hours}Ｈ  ${mins}Ｍ  ${secs}Ｓ ］`;
   }
   setInterval(updateRaidTimer, 1000);
   updateRaidTimer();
-
-  // 2. Sound Toggle & Auto-Start
-  const btnSound = document.getElementById('btn-sound-toggle');
-  const soundIcon = document.getElementById('sound-icon');
-
-  if (btnSound) {
-    btnSound.addEventListener('click', () => {
-      const isMuted = sound.toggleMute();
-      if (soundIcon) soundIcon.textContent = isMuted ? '🔇' : '🔊';
-    });
-  }
-
-  const unlockAudio = () => {
-    sound.ensureContext();
-    window.removeEventListener('click', unlockAudio);
-    window.removeEventListener('keydown', unlockAudio);
-  };
-  window.addEventListener('click', unlockAudio);
-  window.addEventListener('keydown', unlockAudio);
 
   // 3. Initialize Naruto Runner Mini-Game
   const minigameCanvas = document.getElementById('minigame-canvas');
@@ -50,37 +100,28 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnStart = document.getElementById('btn-game-start');
     if (btnStart) {
       btnStart.addEventListener('click', () => {
+        sound.ensureContext();
         game.start();
       });
     }
 
-    const heroPlayBtn = document.getElementById('hero-play-btn');
-    if (heroPlayBtn) {
-      heroPlayBtn.addEventListener('click', () => {
-        setTimeout(() => {
-          if (game) game.start();
-        }, 300);
-      });
-    }
-
-    // High Score Display Sync
     const highScoreEl = document.getElementById('game-high-score-display');
     if (highScoreEl) {
       setInterval(() => {
         if (game) {
-          highScoreEl.textContent = `RECORD: ${game.highScore} PTS`;
+          highScoreEl.textContent = `ＲＥＣＯＲＤ ： ${game.highScore}`;
         }
       }, 500);
     }
   }
 
-  // 4. Initialize Alien Meme Soundboard
+  // 4. Initialize Soundboard
   const soundboardContainer = document.getElementById('soundboard-container');
   if (soundboardContainer) {
     new MemeSoundboard(soundboardContainer);
   }
 
-  // 5. Initialize Raider ID & Alien Adoption Permit
+  // 5. Initialize Raider ID & Alien Permit
   const idCanvas = document.getElementById('idgen-canvas');
   if (idCanvas) {
     new RaiderBadgeGenerator(idCanvas, {
@@ -93,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 6. Initialize Declassified Meme Dossiers Redactions
+  // 6. Initialize Redacted Dossiers
   const redactedElements = document.querySelectorAll('.redacted');
   redactedElements.forEach((el) => {
     el.addEventListener('mouseenter', () => {
