@@ -91,7 +91,55 @@ document.addEventListener('DOMContentLoaded', () => {
   setInterval(updateRaidTimer, 1000);
   updateRaidTimer();
 
-  // 3. Initialize Naruto Runner Mini-Game
+  // 3. Weird Interactive Anomaly Poking (thisshouldnotexist.gif)
+  const pokeAnomaly = document.getElementById('btn-poke-anomaly');
+  if (pokeAnomaly) {
+    pokeAnomaly.addEventListener('click', () => {
+      sound.playFbiOpenUp();
+      sound.playAlienWarble(320);
+      document.body.classList.add('shaking');
+      setTimeout(() => {
+        document.body.classList.remove('shaking');
+      }, 500);
+    });
+  }
+
+  // 4. Interactive Flesh Maw Hover / Click (rre2.gif / vvv.gif)
+  const rreMaw = document.getElementById('rre-maw');
+  if (rreMaw) {
+    rreMaw.addEventListener('mouseenter', () => {
+      sound.playTractorBeam();
+    });
+    rreMaw.addEventListener('click', () => {
+      sound.playLaserPew();
+      sound.playAlienVocal();
+    });
+  }
+
+  // 5. Interactive Mystic Seal (Oneiromancy.png)
+  const sealOneiromancy = document.getElementById('seal-oneiromancy');
+  if (sealOneiromancy) {
+    sealOneiromancy.addEventListener('click', () => {
+      sound.playXFiles();
+      sealOneiromancy.style.transform = 'rotate(180deg) scale(1.2)';
+      setTimeout(() => {
+        sealOneiromancy.style.transform = 'rotate(0deg) scale(1)';
+      }, 600);
+    });
+  }
+
+  // 6. Interactive Eye Bar Hover (un.gif / unn4.gif)
+  const unBar = document.getElementById('un-bar');
+  if (unBar) {
+    unBar.addEventListener('mouseenter', () => {
+      sound.playGeigerClick(8);
+    });
+    unBar.addEventListener('click', () => {
+      sound.playMonsterCrack();
+    });
+  }
+
+  // 7. Initialize Naruto Runner Mini-Game
   const minigameCanvas = document.getElementById('minigame-canvas');
   let game = null;
   if (minigameCanvas) {
@@ -115,13 +163,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // 4. Initialize Soundboard
+  // 8. Initialize Soundboard
   const soundboardContainer = document.getElementById('soundboard-container');
   if (soundboardContainer) {
     new MemeSoundboard(soundboardContainer);
   }
 
-  // 5. Initialize Raider ID & Alien Permit
+  // 9. Initialize Raider ID & Alien Permit
   const idCanvas = document.getElementById('idgen-canvas');
   if (idCanvas) {
     new RaiderBadgeGenerator(idCanvas, {
@@ -134,7 +182,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 6. Initialize Redacted Dossiers
+  // 10. Initialize Redacted Dossiers
   const redactedElements = document.querySelectorAll('.redacted');
   redactedElements.forEach((el) => {
     el.addEventListener('mouseenter', () => {
@@ -161,7 +209,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 7. Initialize Alien Glyph Translator
+  // 11. Initialize Alien Glyph Translator
   const translatorContainer = document.getElementById('translator-container');
   if (translatorContainer) {
     new AlienTranslator(translatorContainer);

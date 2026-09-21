@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@700;900&family=VT323&display=swap" rel="stylesheet" />
 
     <link rel="stylesheet" href="./style.css" />
-    <link rel="icon" type="image/png" href="/images/00warning.gif" />
+    <link rel="icon" type="image/gif" href="/images/00warning.gif" />
   </head>
   <body>
     <!-- Background Audio (Terminal 00 Ambient Waves) -->
@@ -20,13 +20,23 @@
       <source src="/music/terminalwaves.mp3" type="audio/mp3" />
     </audio>
 
-    <!-- Floating Warning GIFs (Terminal 00 Weird Elements) -->
-    <img draggable="false" src="/images/00warning.gif" class="warning-sticker" style="top: 80px; left: 2%;" alt="Without" />
-    <img draggable="false" src="/images/00warning.gif" class="warning-sticker" style="top: 80px; right: 2%;" alt="eyes" />
-    <img draggable="false" src="/images/00warning.gif" class="warning-sticker" style="top: 650px; left: 1%;" alt="you cannot" />
-    <img draggable="false" src="/images/00warning.gif" class="warning-sticker" style="top: 650px; right: 1%;" alt="hope to see" />
-    <img draggable="false" src="/images/deadend.gif" class="floating-deadend" style="top: 1200px; left: 3%;" alt="dead end" />
-    <img draggable="false" src="/images/deadend.gif" class="floating-deadend" style="top: 1200px; right: 3%;" alt="dead end" />
+    <!-- Flanking Living Eye Pillars (back1.gif & back2.gif) -->
+    <div class="pillar-left"></div>
+    <div class="pillar-right"></div>
+
+    <!-- Floating Warning Stickers (00warning.gif) -->
+    <img draggable="false" src="/images/00warning.gif" class="warning-sticker" style="top: 80px; left: 3%;" alt="Without" />
+    <img draggable="false" src="/images/00warning.gif" class="warning-sticker" style="top: 80px; right: 3%;" alt="eyes" />
+    <img draggable="false" src="/images/00warning.gif" class="warning-sticker" style="top: 800px; left: 2%;" alt="you cannot" />
+    <img draggable="false" src="/images/00warning.gif" class="warning-sticker" style="top: 800px; right: 2%;" alt="hope to see" />
+    <img draggable="false" src="/images/00warning.gif" class="warning-sticker" style="top: 1700px; left: 3%;" alt="the truth" />
+    <img draggable="false" src="/images/00warning.gif" class="warning-sticker" style="top: 1700px; right: 3%;" alt="which exists" />
+
+    <!-- Floating Dead End Triangles (deadend.gif) -->
+    <img draggable="false" src="/images/deadend.gif" class="floating-deadend" style="top: 1300px; left: 2%;" alt="dead end" />
+    <img draggable="false" src="/images/deadend.gif" class="floating-deadend" style="top: 1300px; right: 2%;" alt="dead end" />
+    <img draggable="false" src="/images/deadend.gif" class="floating-deadend" style="top: 2400px; left: 3%;" alt="dead end" />
+    <img draggable="false" src="/images/deadend.gif" class="floating-deadend" style="top: 2400px; right: 3%;" alt="dead end" />
 
     <!-- Top Coordinate Status Strip -->
     <header class="term-header-strip">
@@ -43,24 +53,30 @@
 
     <!-- Cryptic Scrolling Marquee (#info ticker from Terminal 00) -->
     <div id="info">
-      <span>［ ＷＡＲＮＩＮＧ ： ３７°１４′００″ Ｎ １１５°４８′３０″ Ｗ ］ — ＴＨＥＹ ＣＡＮＮＯＴ ＳＴＯＰ ＡＬＬ ＯＦ ＵＳ — ＩＦ ＷＥ ＮＡＲＵＴＯ ＲＵＮ ＷＥ ＣＡＮ ＭＯＶＥ ＦＡＳＴＥＲ ＴＨＡＮ ＴＨＥＩＲ ＢＵＬＬＥＴＳ — ＳＵＢＪＥＣＴ ＰＡＵＬ ＩＳ ＤＲＩＮＫＩＮＧ ＢＡＪＡ ＢＬＡＳＴ — ＫＹＬＥ ＩＳ ＰＵＮＣＨＩＮＧ ＴＨＲＯＵＧＨ ＴＨＥ ＤＲＹＷＡＬＬ — ＥＬＥＭＥＮＴ １１５ ＤＥＣＡＹ ＩＭＭＩＮＥＮＴ — ＤＯ ＮＯＴ ＬＯＯＫ ＡＴ ＴＨＥ ＧＡＴＥ — ＣＬＡＰ ＡＬＩＥＮ ＣＨＥＥＫＳ ＤＩＶＩＳＩＯＮ —</span>
+      <span>［ ＷＡＲＮＩＮＧ ： ３７°１４′００″ Ｎ １１５°４８′３０″ Ｗ ］ — ＴＨＥＹ ＣＡＮＮＯＴ ＳＴＯＰ ＡＬＬ ＯＦ ＵＳ — ＩＦ ＷＥ ＮＡＲＵＴＯ ＲＵＮ ＷＥ ＣＡＮ ＭＯＶＥ ＦＡＳＴＥＲ ＴＨＡＮ ＴＨＥＩＲ ＢＵＬＬＥＴＳ — ＳＵＢＪＥＣＴ ＰＡＵＬ ＩＳ ＤＲＩＮＫＩＮＧ ＢＡＪＡ ＢＬＡＳＴ — ＫＹＬＥ ＩＳ ＰＵＮＣＨＩＮＧ ＴＨＲＯＵＧＨ ＴＨＥ ＤＲＹＷＡＬＬ — ＥＬＥＭＥＮＴ １１５ ＤＥＣＡＹ ＩＭＭＩＮＥＮＴ — ＤＯ ＮＯＴ ＬＯＯＫ ＡＴ ＴＨＥ ＧＡＴＥ — ＣＬＡＰ ＡＬＩＥＮ ＣＨＥＥＫＳ ＤＩＶＩＳＩＯＮ — ＳＫＩＢＩＤＩ ＳＵＢＴＥＲＲＡＮＥＡＮ ＰＥＮＥＴＲＡＴＩＯＮ — ＹＯＵ ＭＵＳＴ ＣＯＮＳＵＭＥ ＴＨＥ ＴＲＵＴＨ —</span>
     </div>
 
-    <!-- Terminal 00 Cryptic Navigation Bar -->
+    <!-- Terminal 00 Cryptic Navigation Bar With Rune Dividers -->
     <nav class="term-nav">
       <div class="term-nav-links">
         <img draggable="false" src="/images/zz.gif" alt="thread" />
+        <img draggable="false" src="/images/zz3.png" alt="rune" />
         <a href="#depth-00" class="term-link">︱ ［ Ｔｅｒｍｉｎａｌ ００ ］</a>
         <a href="#depth-naruto" class="term-link">︱ ［ Ｐｒｏｂｅ ＮＡＲＵＴＯ ］</a>
+        <a href="#depth-maw" class="term-link">︱ ［ Ｔｈｅ Ｆｌｅｓｈ Ｇａｔｅ ］</a>
         <a href="#depth-sounds" class="term-link">︱ ［ Ｓｏｕｎｄ Ｄｅｐｔｈｓ ］</a>
         <a href="#depth-dossiers" class="term-link">︱ ［ Ｓｕｂｊｅｃｔ ＰＡＵＬ ］</a>
-        <a href="#depth-gate" class="term-link">︱ ［ Ｔｈｅ Ｇａｔｅ ］</a>
+        <a href="#depth-gate" class="term-link">︱ ［ Ｒｕｎｅ Ｅｎｃｏｄｅｒ ］</a>
         <a href="#depth-permit" class="term-link">︱ ［ Ｐｅｒｍｉｔ ］ ︱</a>
-        <img draggable="false" src="/images/zz.gif" alt="thread" />
+        <img draggable="false" src="/images/zz3.png" alt="rune" />
+        <img draggable="false" src="/images/zz2.gif" alt="eye" />
       </div>
     </nav>
 
     <div class="term-main-container">
+      <!-- EYE BAR (bbn.gif) -->
+      <img draggable="false" src="/images/bbn.gif" class="bbn-bar" alt="watching" />
+
       <!-- DEPTH 00: OPENING TERMINAL 00 ENTRY -->
       <section id="depth-00" class="term-block">
         <div class="term-glitch-header">
@@ -74,6 +90,14 @@
           <span class="highlight-pink">Ｔｈｅｙ ｃａｎｎｏｔ ｓｔｏｐ ａｌｌ ｏｆ ｕｓ．</span>
         </p>
 
+        <!-- HYPNOTIC VOID VORTEX (With_Wilbells_will_why_waste_whit_worrying.gif) -->
+        <div class="vortex-container">
+          <img draggable="false" src="/images/With_Wilbells_will_why_waste_whit_worrying.gif" class="vortex-img" alt="Wilbells Vortex" />
+          <div class="vortex-caption">
+            ［ ＡＲＣＨＩＶＥ ００ ： ＴＨＥ ＷＩＬＢＥＬＬＳ ＶＯＩＤ ＳＷＩＲＬ ］
+          </div>
+        </div>
+
         <div class="term-warning-box">
           <span class="warning-title">▲ ［ Ｗ Ａ Ｒ Ｎ Ｉ Ｎ Ｇ ］</span><br />
           Ｙｏｕ ｈａｖｅ ｎｏ ｃｈａｎｃｅ ｏｆ ｓｕｒｖｉｖｉｎｇ ｔｈｉｓ ｐｌａｃｅ． 
@@ -84,6 +108,11 @@
 
         <div class="term-time-elapsed" id="term-raid-timer">
           ［ ＴＩＭＥ ＳＩＮＣＥ ＴＨＥ ＳＥＰＴＥＭＢＥＲ ２０， ２０１９ ＢＲＥＡＣＨ ： ＣＡＬＣＵＬＡＴＩＮＧ ］
+        </div>
+
+        <!-- INTERACTIVE EYE BAR (un.gif -> unn4.gif on hover) -->
+        <div>
+          <div id="un-bar" title="Eye of S-4"></div>
         </div>
 
         <!-- Terminal 00 Artifact Grid -->
@@ -103,7 +132,22 @@
             </div>
           </div>
         </div>
+
+        <!-- FORBIDDEN ROTATING SKULL ANOMALY (thisshouldnotexist.gif) -->
+        <div class="cursed-entity-box" id="btn-poke-anomaly" title="Click to agitate anomaly">
+          <img draggable="false" src="/images/thisshouldnotexist.gif" class="cursed-entity-img" alt="This Should Not Exist" />
+          <div class="cursed-entity-label">［ ＴＨＩＳ ＳＨＯＵＬＤ ＮＯＴ ＥＸＩＳＴ ］</div>
+        </div>
       </section>
+
+      <!-- RUNE DIVIDER (zz.gif, zz2.gif, zz4.gif) -->
+      <div class="rune-divider">
+        <img draggable="false" src="/images/zz.gif" alt="thread" />
+        <img draggable="false" src="/images/zz2.gif" alt="eye" />
+        <img draggable="false" src="/images/zz3.png" alt="rune" />
+        <img draggable="false" src="/images/zz4.gif" alt="seal" />
+        <img draggable="false" src="/images/zz.gif" alt="thread" />
+      </div>
 
       <!-- DEPTH 01: PROBE ENTITY NARUTO MINI-GAME -->
       <section id="depth-naruto" class="term-block">
@@ -130,6 +174,35 @@
         </div>
       </section>
 
+      <!-- EYE BAR (bbn.gif) -->
+      <img draggable="false" src="/images/bbn.gif" class="bbn-bar" alt="watching" />
+
+      <!-- DEPTH: THE FLESH MAW GATE (rre2.gif -> vvv.gif) -->
+      <section id="depth-maw" class="term-block">
+        <div class="term-block-header">
+          <h2 class="depth-title">［ ＴＨＥ ＦＬＥＳＨ ＧＡＴＥ ＯＦ Ｓ－４ ］</h2>
+          <span class="depth-tag">ＨＯＶＥＲ ＯＲ ＣＬＩＣＫ ＴＯ ＰＥＮＥＴＲＡＴＥ ＴＨＥ ＭＡＷ</span>
+        </div>
+        <p class="term-sub-desc">
+          Ｔｈｅ ｂａｓｅ ｐｅｒｉｍｅｔｅｒ ｉｓ ｎｏｔ ｍａｄｅ ｏｆ ｗｉｒｅ． Ｉｔ ｉｓ ａｌｉｖｅ．
+        </p>
+        <div class="gate-maw-wrap">
+          <div id="rre-maw" title="Hover to trigger flesh static" data-static="active"></div>
+        </div>
+        <div>
+          <img draggable="false" src="/images/Oneiromancy.png" style="width: 80px; filter: drop-shadow(0 0 10px #d2738a); cursor: pointer;" id="seal-oneiromancy" title="Mystic Seal of Papoose" alt="Oneiromancy" />
+          <div style="font-size: 11px; color: var(--term-mauve); margin-top: 4px;">［ ＳＥＡＬ ＯＦ ＯＮＥＩＲＯＭＡＮＣＹ ］</div>
+        </div>
+      </section>
+
+      <!-- RUNE DIVIDER -->
+      <div class="rune-divider">
+        <img draggable="false" src="/images/zz4.gif" alt="seal" />
+        <img draggable="false" src="/images/zz3.png" alt="rune" />
+        <img draggable="false" src="/images/zz2.gif" alt="eye" />
+        <img draggable="false" src="/images/zz.gif" alt="thread" />
+      </div>
+
       <!-- DEPTH 02: SOUND DEPTHS / FREQUENCIES -->
       <section id="depth-sounds" class="term-block">
         <div class="term-block-header">
@@ -145,6 +218,11 @@
           <!-- Rendered dynamically by src/soundboard.js -->
         </div>
       </section>
+
+      <!-- BEYOND THE POINT OF (beyondthepointof.gif) -->
+      <div style="margin: 10px auto;">
+        <img draggable="false" src="/images/beyondthepointof.gif" alt="beyond the point of" style="max-width: 100%; filter: drop-shadow(0 0 8px #d2738a);" />
+      </div>
 
       <!-- DEPTH 03: SUBJECT PAUL & DECLASSIFIED DOSSIERS -->
       <section id="depth-dossiers" class="term-block">
@@ -217,6 +295,9 @@
         </div>
       </section>
 
+      <!-- EYE BAR (bbn.gif) -->
+      <img draggable="false" src="/images/bbn.gif" class="bbn-bar" alt="watching" />
+
       <!-- DEPTH 04: THE GATE // RUNE ENCODER -->
       <section id="depth-gate" class="term-block">
         <div class="term-block-header">
@@ -228,6 +309,15 @@
           <!-- Rendered dynamically by src/translator.js -->
         </div>
       </section>
+
+      <!-- RUNE DIVIDER -->
+      <div class="rune-divider">
+        <img draggable="false" src="/images/zz.gif" alt="thread" />
+        <img draggable="false" src="/images/zz2.gif" alt="eye" />
+        <img draggable="false" src="/images/zz3.png" alt="rune" />
+        <img draggable="false" src="/images/zz4.gif" alt="seal" />
+        <img draggable="false" src="/images/zz.gif" alt="thread" />
+      </div>
 
       <!-- DEPTH 05: CLEARANCE PERMIT -->
       <section id="depth-permit" class="term-block">
@@ -289,8 +379,10 @@
     <!-- TERMINAL 00 BRUTALIST FOOTER -->
     <footer class="term-footer">
       <div>
+        <img draggable="false" src="/images/zz.gif" alt="thread" style="vertical-align: middle; margin-right: 6px;" />
         ＴＥＲＭＩＮＡＬ ００ ／／ ＣＯＯＲＤＩＮＡＴＥＳ ： 
         <a href="https://maps.google.com/?q=37.2350,-115.8111" target="_blank" rel="noopener noreferrer">３７°１４′００″ Ｎ １１５°４８′３０″ Ｗ</a>
+        <img draggable="false" src="/images/zz.gif" alt="thread" style="vertical-align: middle; margin-left: 6px;" />
       </div>
       <div class="term-footer-links">
         <a href="https://37-14-00-n115-48-30-w.vercel.app" target="_blank" rel="noopener noreferrer">３７°１４′００′′ｎ１１５°４８′３０′′ｗ．ｖｅｒｃｅｌ．ａｐｐ</a>

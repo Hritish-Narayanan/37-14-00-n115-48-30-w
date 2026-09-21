@@ -1,6 +1,6 @@
 /* ==========================================================================
    TERMINAL 00 // S-4 GROOM LAKE (37°14′00″ N 115°48′30″ W)
-   AUTHENTIC ANGUS NICNEVEN TERMINAL 00 BRUTALIST NET-ART STYLING
+   AUTHENTIC ANGUS NICNEVEN TERMINAL 00 BRUTALIST & CURSED NET-ART STYLING
    ========================================================================== */
 
 :root {
@@ -28,7 +28,7 @@ body {
   color: var(--term-text);
   font-family: var(--term-font);
   font-size: 15px;
-  line-height: 1.7;
+  line-height: 1.8;
   text-align: center;
   overflow-x: hidden;
   cursor: url("/cursor/rrw.png") 11 11, auto;
@@ -44,7 +44,8 @@ a {
 }
 
 a:hover {
-  color: var(--term-text);
+  color: var(--term-hover);
+  text-shadow: 0 0 8px var(--term-mauve);
 }
 
 /* SELECTION */
@@ -57,22 +58,48 @@ a:hover {
   color: var(--term-mauve);
 }
 
+/* EERIE FLANKING PILLARS (back1.gif & back2.gif) */
+.pillar-left {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 48px;
+  height: 100vh;
+  background: url('/images/back1.gif') repeat-y;
+  opacity: 0.35;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.pillar-right {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 48px;
+  height: 100vh;
+  background: url('/images/back2.gif') repeat-y;
+  opacity: 0.35;
+  z-index: 1;
+  pointer-events: none;
+}
+
 /* FLOATING TERMINAL 00 WARNINGS */
 .warning-sticker {
   position: absolute;
   z-index: 1;
   pointer-events: none;
-  opacity: 0.75;
-  width: 90px;
-  height: 90px;
+  opacity: 0.8;
+  width: 100px;
+  height: 100px;
+  filter: drop-shadow(0 0 10px rgba(210, 115, 138, 0.5));
 }
 
 .floating-deadend {
   position: absolute;
   z-index: 1;
   pointer-events: none;
-  opacity: 0.6;
-  width: 120px;
+  opacity: 0.7;
+  width: 130px;
 }
 
 /* AUTOPLAY OVERLAY (TERMINAL 00 POPUP) */
@@ -102,13 +129,13 @@ a:hover {
 #autoplay-cover img {
   max-width: 320px;
   margin-bottom: 20px;
-  filter: drop-shadow(0 0 20px rgba(210, 115, 138, 0.4));
+  filter: drop-shadow(0 0 25px rgba(210, 115, 138, 0.6));
 }
 
 #autoplay-cover p {
   color: var(--term-text);
   font-size: 16px;
-  max-width: 600px;
+  max-width: 620px;
   line-height: 1.8;
 }
 
@@ -122,6 +149,8 @@ a:hover {
   align-items: center;
   font-size: 13px;
   letter-spacing: 1px;
+  position: relative;
+  z-index: 10;
 }
 
 .blink-dot {
@@ -161,7 +190,7 @@ a:hover {
   width: 100%;
   max-width: 820px;
   height: 38px;
-  margin: 20px auto 10px;
+  margin: 16px auto 10px;
   background-color: #000000;
   padding: 6px 16px;
   border: 1px solid var(--term-mauve);
@@ -173,7 +202,7 @@ a:hover {
   position: absolute;
   color: var(--term-text);
   white-space: pre;
-  animation: 26s linear infinite info;
+  animation: 25s linear infinite info;
   font-size: 13px;
   top: 6px;
 }
@@ -184,10 +213,10 @@ a:hover {
 
 @keyframes info {
   0% { left: 820px; }
-  100% { left: -2400px; }
+  100% { left: -2600px; }
 }
 
-/* CRYPTIC NAVIGATION */
+/* CRYPTIC NAVIGATION WITH ZZ RUNES */
 .term-nav {
   margin: 15px auto;
   max-width: 820px;
@@ -197,9 +226,9 @@ a:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
   flex-wrap: wrap;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .term-link {
@@ -211,6 +240,28 @@ a:hover {
   text-shadow: 0 0 6px var(--term-mauve);
 }
 
+/* RUNE DIVIDERS (zz.gif, zz2.gif, zz3.png, zz4.gif) */
+.rune-divider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin: 18px auto;
+}
+
+.rune-divider img {
+  vertical-align: middle;
+}
+
+/* BBN EYE BAR (bbn.gif) */
+.bbn-bar {
+  display: block;
+  margin: 14px auto;
+  max-width: 100%;
+  height: auto;
+  opacity: 0.85;
+}
+
 /* MAIN CONTAINER */
 .term-main-container {
   max-width: 820px;
@@ -219,6 +270,8 @@ a:hover {
   display: flex;
   flex-direction: column;
   gap: 32px;
+  position: relative;
+  z-index: 5;
 }
 
 /* TERMINAL 00 BLOCKS */
@@ -229,7 +282,6 @@ a:hover {
   padding: 26px 20px;
   text-align: center;
   position: relative;
-  z-index: 2;
 }
 
 .term-glitch-header {
@@ -252,6 +304,98 @@ a:hover {
   color: var(--term-mauve);
 }
 
+/* THE GIANT HYPNOTIC VORTEX (With_Wilbells_will_why_waste_whit_worrying.gif) */
+.vortex-container {
+  margin: 20px auto;
+  max-width: 100%;
+  border: 1px solid var(--term-mauve);
+  background: #000;
+  padding: 6px;
+  box-shadow: 0 0 20px rgba(210, 115, 138, 0.3);
+}
+
+.vortex-img {
+  width: 100%;
+  max-height: 240px;
+  object-fit: cover;
+  display: block;
+}
+
+.vortex-caption {
+  font-size: 11px;
+  color: var(--term-mauve);
+  padding-top: 6px;
+  letter-spacing: 1px;
+}
+
+/* THE CURSED ROTATING ENTITY (thisshouldnotexist.gif) */
+.cursed-entity-box {
+  margin: 24px auto;
+  cursor: url("/cursor/rrw2.png") 11 11, pointer;
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.cursed-entity-box:hover {
+  transform: scale(1.08);
+}
+
+.cursed-entity-img {
+  width: 140px;
+  height: 140px;
+  display: block;
+  margin: 0 auto;
+  box-shadow: 0 0 15px #000000;
+}
+
+.cursed-entity-label {
+  font-size: 11px;
+  color: var(--term-alert);
+  margin-top: 6px;
+  letter-spacing: 1px;
+}
+
+/* INTERACTIVE FLESH MAW GATE (rre2.gif & vvv.gif) */
+.gate-maw-wrap {
+  margin: 20px auto;
+  display: inline-block;
+}
+
+#rre-maw {
+  display: block;
+  width: 700px;
+  max-width: 100%;
+  height: 180px;
+  background: url('/images/rre2.gif') center/cover no-repeat;
+  border: 1px solid var(--term-mauve);
+  cursor: url("/cursor/rrw2.png") 11 11, pointer;
+  transition: all 0.3s ease;
+}
+
+#rre-maw:hover {
+  background: url('/images/vvv.gif') center/cover no-repeat;
+  border-color: #ff0055;
+  box-shadow: 0 0 25px rgba(255, 0, 85, 0.6);
+}
+
+/* INTERACTIVE EYE BAR (un.gif & unn4.gif) */
+#un-bar {
+  display: inline-block;
+  width: 350px;
+  max-width: 100%;
+  height: 35px;
+  background: url('/images/un.gif') center/contain no-repeat;
+  margin: 12px auto;
+  cursor: url("/cursor/rrw2.png") 11 11, pointer;
+  transition: all 0.2s ease;
+}
+
+#un-bar:hover {
+  background: url('/images/unn4.gif') center/contain no-repeat;
+  filter: drop-shadow(0 0 10px #d2738a);
+}
+
+/* WARNING BOX */
 .term-warning-box {
   background: #0d0407;
   border: 1px dashed var(--term-alert);
@@ -629,6 +773,8 @@ a:hover {
   padding: 24px 16px;
   font-size: 12px;
   color: #8c836c;
+  position: relative;
+  z-index: 10;
 }
 
 .term-footer a {
@@ -643,6 +789,25 @@ a:hover {
   flex-wrap: wrap;
 }
 
+/* SHAKE ANIMATION ON CLICKING FORBIDDEN OBJECTS */
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+.shaking {
+  animation: shake 0.5s infinite;
+}
+
 /* RESPONSIVE */
 @media (max-width: 768px) {
   .term-artifact-grid {
@@ -655,7 +820,7 @@ a:hover {
     flex-direction: column;
     gap: 8px;
   }
-  .warning-sticker {
+  .warning-sticker, .floating-deadend, .pillar-left, .pillar-right {
     display: none;
   }
 }
