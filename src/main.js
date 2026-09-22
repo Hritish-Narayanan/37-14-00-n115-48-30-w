@@ -5,10 +5,6 @@ import { NarutoRunnerGame } from './minigame.js';
 import { RaiderBadgeGenerator } from './idgenerator.js';
 import { MemeSoundboard } from './soundboard.js';
 import { AlienTranslator } from './translator.js';
-import { inject } from '@vercel/analytics';
-
-// Initialize Vercel Web Analytics
-inject();
 
 // Initialize Vercel Web Analytics
 inject();
@@ -194,7 +190,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (isBrokenReality) {
         document.body.classList.add('reality-broken');
         btnBreakReality.classList.add('active');
-        btnBreakReality.textContent = '［ ＲＥＳＴＯＲＥ  ＲＥＡＬＩ��Ｙ ］';
+        btnBreakReality.textContent = '［ ＲＥＳＴＯＲＥ  ＲＥＡＬＩＴＹ ］';
         sound.playAlienWarble(550);
         sound.playMonsterCrack();
 
