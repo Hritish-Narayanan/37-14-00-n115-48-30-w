@@ -4,6 +4,10 @@ import { NarutoRunnerGame } from './minigame.js';
 import { RaiderBadgeGenerator } from './idgenerator.js';
 import { MemeSoundboard } from './soundboard.js';
 import { AlienTranslator } from './translator.js';
+import { inject } from '@vercel/analytics';
+
+// Initialize Vercel Web Analytics
+inject();
 
 document.addEventListener('DOMContentLoaded', () => {
   // 1. S-4 Ambient Waves Audio & Paranoid Desert Cover
@@ -183,7 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (isBrokenReality) {
         document.body.classList.add('reality-broken');
         btnBreakReality.classList.add('active');
-        btnBreakReality.textContent = '［ ＲＥＳＴＯＲＥ  ＲＥＡＬＩＴＹ ］';
+        btnBreakReality.textContent = '［ ＲＥＳＴＯＲＥ  ＲＥＡＬＩ��Ｙ ］';
         sound.playAlienWarble(550);
         sound.playMonsterCrack();
 
