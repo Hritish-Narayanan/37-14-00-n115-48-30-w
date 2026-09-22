@@ -1,7 +1,7 @@
 # 🛸 37°14′00″ N 115°48′30″ W // OPERATION: STORM AREA 51
 
-[![Vercel Deployment](https://img.shields.io/badge/Vercel-Deployed-black?logo=vercel&logoColor=white)](https://37-14-00-n115-48-30-w.vercel.app)
-[![Target Domain](https://img.shields.io/badge/Domain-37°14′00″N115°48′30″W.vercel.app-00ff88)](https://37-14-00-n115-48-30-w.vercel.app)
+[![Vercel Deployment](https://img.shields.io/badge/Vercel-Deployed-black?logo=vercel&logoColor=white)](https://xn--37140n1154830w-wuah0328kbaahca.vercel.app)
+[![Target Domain](https://img.shields.io/badge/Domain-37°14′0″N115°48′30″W.vercel.app-00ff88)](https://xn--37140n1154830w-wuah0328kbaahca.vercel.app)
 [![Classification](https://img.shields.io/badge/Security-CHEEKS%20CLAPPED-red)](#)
 [![Coordinates](https://img.shields.io/badge/Coordinates-37°14′00″N%20115°48′30″W-00ff88)](#)
 
@@ -14,8 +14,8 @@
 ## 🚀 Live Deployments
 
 - **Primary Vercel Production**: [https://37-14-00-n115-48-30-w.vercel.app](https://37-14-00-n115-48-30-w.vercel.app)
-- **Unicode Coordinate Domain**: `https://37°14′00′′n115°48′30′′w.vercel.app`  
-  *(Internationalized Punycode Domain: `https://xn--371400n1154830w-9vai5926lcaahca.vercel.app`)*
+- **Unicode Coordinate Domain**: `https://37°14′0′′n115°48′30′′w.vercel.app`  
+  *(Internationalized Punycode Domain: `https://xn--37140n1154830w-wuah0328kbaahca.vercel.app`)*
 - **GitHub Repository**: [https://github.com/Hritish-Narayanan/37-14-00-n115-48-30-w](https://github.com/Hritish-Narayanan/37-14-00-n115-48-30-w)
 
 ---
@@ -111,4 +111,4 @@ git push origin main
 
 To bind the custom domain on Vercel:
 1. Go to your Project Settings > **Domains** on Vercel.
-2. Add `37-14-00-n115-48-30-w.vercel.app` and `xn--371400n1154830w-9vai5926lcaahca.vercel.app` (Punycode representation of `37°14′00′′n115°48′30′′w.vercel.app`).
+2. Add `37-14-00-n115-48-30-w.vercel.app` and `xn--37140n1154830w-wuah0328kbaahca.vercel.app` (Punycode representation of `37°14′0′′n115°48′30′′w.vercel.app`).
