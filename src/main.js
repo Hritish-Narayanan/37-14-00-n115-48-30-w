@@ -1,10 +1,14 @@
 // S-4 Groom Lake Delirium Orchestrator [37°14′00″ N 115°48′30″ W]
+import { inject, track } from '@vercel/analytics';
 import { sound } from './audio.js';
 import { NarutoRunnerGame } from './minigame.js';
 import { RaiderBadgeGenerator } from './idgenerator.js';
 import { MemeSoundboard } from './soundboard.js';
 import { AlienTranslator } from './translator.js';
 import { inject } from '@vercel/analytics';
+
+// Initialize Vercel Web Analytics
+inject();
 
 // Initialize Vercel Web Analytics
 inject();
@@ -183,6 +187,9 @@ document.addEventListener('DOMContentLoaded', () => {
     btnBreakReality.addEventListener('click', () => {
       isBrokenReality = !isBrokenReality;
       sound.ensureContext();
+      try {
+        track('toggle_break_reality', { state: isBrokenReality ? 'active' : 'restored' });
+      } catch (e) {}
 
       if (isBrokenReality) {
         document.body.classList.add('reality-broken');
